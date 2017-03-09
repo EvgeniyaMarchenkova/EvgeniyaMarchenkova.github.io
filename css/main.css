@@ -5,6 +5,7 @@ html {
 body {
     min-height: 100%;
     position: relative;
+    background-color: #f9f9fb;
 }
 
 .container {
@@ -133,6 +134,8 @@ nav:before {
     justify-content: space-around;
     align-items: center;
     align-content: space-around;
+    padding-top: 75px;
+    padding-bottom: 58px;
 }
 
 .content-column {
@@ -140,7 +143,8 @@ nav:before {
 }
 
 article {
-    display: inline-block;
+    position: relative;
+    margin-bottom: 30px;
     border-style: solid;
     border-width: 1px;
     border-color: rgba(221, 221, 221, 15);
@@ -148,14 +152,43 @@ article {
     background-color: #ffffff;
     box-shadow: 0px 0px 1px 0px rgba(232, 232, 232, 0.21);
     width: 360px;
-    height: 482px;
     font-family: Hind;
     color: #464646;
     font-size: 15px; /* Приближение из-за подстановки шрифтов */
     font-weight: 300;
     line-height: 28px; /* Приближение из-за подстановки шрифтов */
     text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
 }
+
+.article-with-background {
+    background-image: url("../images/article-backgroung.png");
+}
+
+.empty-article {
+    height: 513px;
+}
+
+article:before {
+    box-sizing: border-box;
+    content: "\f040";
+    font-family: FontAwesome;
+    color: white;
+    height: 35px;
+    width: 40px;
+    background-color: black;
+    position: absolute;
+    top: -17px;
+    left: 170px;
+    padding-top: 8px;
+}
+
+.menu-article {
+    display: flex;
+    justify-content: space-between;
+}
+
 footer {
     position: absolute;
     height: 412px;
@@ -185,7 +218,6 @@ footer h3 {
     font-weight: 700;
     line-height: 28px;/* Приближение из-за подстановки шрифтов */
     text-align: left;
-
     margin: 59px auto 38px;
 }
 
