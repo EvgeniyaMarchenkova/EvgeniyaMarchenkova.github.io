@@ -1,122 +1,217 @@
-body {
-    height: 2000px;
-    font-family: 'PT Sans', sans-serif;
-}
-.container {
-    margin: 200px auto 0 auto;
-    width: 523px;
-    padding: 30px 32px;
-}
-
-.bordered {
-    border: 2px solid black;
-}
-
-.first-container {
-    background-color: #ebebeb;
-    position: relative;
-}
-
-.second-container, .thirth-container {
-    position: absolute;
-    width: 100%;
+html {
     height: 100%;
 }
 
-.second-container {
-    background-color: #cccccc;
-    top:20px;
-    left: 20px;
+body {
+    min-height: 100%;
+    position: relative;
+}
+
+.container {
+    padding-bottom: 412px;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 1531px;
+}
+
+nav {
+    display: flex;
+    background-color:  #212429;
+    height: 55px;
+    justify-content: space-between;
+}
+
+nav div {
+    display: inline-flex;
+}
+
+.nav-link {
+    justify-content:center;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+
+nav div a {
+    font-family: FontAwesome;
+    color:  #ffffff;
+    font-size: 16px;/* Приближение из-за подстановки шрифтов */
+    font-weight: 400;
+    line-height: 24px;/* Приближение из-за подстановки шрифтов */
+    text-align: left;
+}
+
+nav:before {
+    content: '';
+    height: 345px;
+    background-color:  #212429;
+    position: absolute;
+    width: 100%;
+    top:0;
+    left: 0;
     z-index: -1;
 }
 
-.thirth-container {
-    background-color: #acacac;
-    top:40px;
-    left: 40px;
-    z-index: -2;
+.nav-link {
+    width: 65px;
+    align-items: center;
 }
 
-.bookmark {
-    border:2px solid black;
+.slider {
+    position: relative;
+}
+.slider>div{
     position: absolute;
-    top: 30px;
-    height: 35px;
-    border-radius: 0 10px 10px 0;
-}
-
-.first-bookmark {
-    background-color: #f68e56;
-    width: 111px;
-    right: -83px;
-}
-
-.second-bookmark {
-    background-color: #39b54a;
-    width: 99px;
-    right: -47px;
-}
-
-.thirth-bookmark {
-    background-color: #00aeef;
-    width: 99px;
-    right: -15px;
-}
-
-.clear-flow:after {
-    content: "";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-}
-.left {
-    float: left;
-    margin-right: 20px;
-}
-.right {
-    float: right;
-}
-.second-section img {
-    margin-top: 15px;
-}
-
-footer  {
-    display: inline-block;
-}
-
-footer div  {
-    margin: 25px auto 20px auto;
+    color: white;
     text-align: center;
 }
 
-.icons-block {
-    position: fixed;
-    right: 0;
-    bottom: 40px;
-    height: 71px;
-    width: 89px;
-    background-color: #fbaf5d;
-    border: 1px solid black;
+.header-slider {
+    left: 0;
+    bottom: 30px;
 }
 
-.icons-block>div {
-    margin-top: 7px;
+.slide-buttons {
+    top: 100px;
+    right: 120px;
+    transform: rotate(270deg);
+}
+
+.slide-buttons span {
+    margin: 10px;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    height: 100px;
+    width: 1531px;
+    box-sizing: border-box;
+    background-color: #f7f7f7;
+
+}
+
+.signup-form h3 {
+    font-family: Montserrat;
+    color: #212121;
+    font-size: 20px; /* Приближение из-за подстановки шрифтов */
+    font-weight: 700;
+    line-height: 28px; /* Приближение из-за подстановки шрифтов */
+    text-align: left;
+    margin-left: 30px;
+
+}
+.signup-form input {
+    border:1px solid rgba(221, 221, 221, 15);
+    box-shadow: 0px 0px 1px 0px rgba(232, 232, 232, 0.21);
+    height: 50px;
+    width: 450px;
+    background-color: #ffffff;
+    margin-left: 30px;
+    padding-left: 30px;
+    font-family: Hind;
+    color: #999999;
+    font-size: 15px; /* Приближение из-за подстановки шрифтов */
+    font-weight: 300;
+    line-height: 28px; /* Приближение из-за подстановки шрифтов */
+}
+
+.signup-form input:last-child {
+    background-color: #212121;
+    color: #ffffff;
+    font-size: 14px; /* Приближение из-за подстановки шрифтов */
+    font-weight: 500;
+    line-height: 24px; /* Приближение из-за подстановки шрифтов */
+    margin-right: 30px;
+    margin-left: none;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+}
+
+.content-column {
+    flex-direction: column;
+}
+
+article {
+    display: inline-block;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(221, 221, 221, 15);
+    box-sizing: border-box;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 1px 0px rgba(232, 232, 232, 0.21);
+    width: 360px;
+    height: 482px;
+    font-family: Hind;
+    color: #464646;
+    font-size: 15px; /* Приближение из-за подстановки шрифтов */
+    font-weight: 300;
+    line-height: 28px; /* Приближение из-за подстановки шрифтов */
     text-align: center;
 }
+footer {
+    position: absolute;
+    height: 412px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: black;
 
-.icon {
-    display: inline-block;
-    background-image: url("../../privat-repository/images/icons.png");
-    background-repeat: no-repeat;
-    width: 23px;
-    height: 23px;
+    font-family: Hind;
+    color: #f9f9fb;
+    font-size: 15px; /* Приближение из-за подстановки шрифтов */
+    font-weight: 300;
+    line-height: 28px; /* Приближение из-за подстановки шрифтов */
+    text-align: left;
 }
 
-.twitter {
-    background-position-x: -28px ;
+footer .wrapper {
+    display: flex;
+    justify-content: space-between;
+
 }
 
-.unknown-icon {
-    background-position-x: -56px ;
+footer h3 {
+    font-family: Montserrat;
+    color:  #f7f7f7;
+    font-size: 16px;/* Приближение из-за подстановки шрифтов */
+    font-weight: 700;
+    line-height: 28px;/* Приближение из-за подстановки шрифтов */
+    text-align: left;
+
+    margin: 59px auto 38px;
+}
+
+
+
+.about {
+    width: 361px;
+}
+
+.latest-tweets {
+    width: 359px;
+}
+
+.follow-instagram {
+    width: 361px;
+
+}
+
+.follow-instagram img {
+    margin-left: -0.25em;
+}
+
+.follow-instagram img:first-of-type {
+    margin-left: 0;
+}
+
+.latest-comment {
+    width: 348px;
 }
