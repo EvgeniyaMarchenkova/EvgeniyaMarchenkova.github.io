@@ -131,7 +131,7 @@ nav:before {
 
 .content {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     align-content: space-around;
     padding-top: 75px;
@@ -145,21 +145,38 @@ nav:before {
 article {
     position: relative;
     margin-bottom: 30px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgba(221, 221, 221, 15);
     box-sizing: border-box;
     background-color: #ffffff;
-    box-shadow: 0px 0px 1px 0px rgba(232, 232, 232, 0.21);
     width: 360px;
-    font-family: Hind;
     color: #464646;
-    font-size: 15px; /* Приближение из-за подстановки шрифтов */
     font-weight: 300;
     line-height: 28px; /* Приближение из-за подстановки шрифтов */
     text-align: center;
-    padding-left: 30px;
-    padding-right: 30px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color:  rgba(221, 221, 221, 15);
+    box-sizing: border-box;
+    background-color:  #ffffff;
+    box-shadow: 0px 0px 1px 0px rgba(232, 232, 232, 0.21);
+
+}
+
+.content-article {
+    padding:58px 30px 66px 30px;
+}
+
+article h4 {
+    color: #212121;
+}
+
+
+.read-more-article {
+    height: 32px;
+    width: 128px;
+    border-right: 1px solid rgba(221, 221, 221, 15);
+    border-left: 1px solid rgba(221, 221, 221, 15);
+    margin: 10px auto;
 }
 
 .article-with-background {
@@ -169,33 +186,99 @@ article {
 .empty-article {
     height: 513px;
 }
+.article-with-image {
+    margin-top: 259px;
+}
 
-article:before {
+.article-with-black-background {
+    color:white;
+    background-color: #212429;
+}
+
+.image-for-article {
+    position: absolute;
+    top: -256px;
+    left:0;
+    width: 100%;
+    height: 256px;
+    background-color: #f4f4f4;
+}
+
+.circle-image {
+    width: 135px;
+    height: 135px;
+    background-color: #999999;
+    border:1px solid white;
+    border-radius: 70px;
+    margin: 0 auto;
+}
+
+.article-icon:before {
     box-sizing: border-box;
-    content: "\f040";
     font-family: FontAwesome;
     color: white;
     height: 35px;
     width: 40px;
-    background-color: black;
+    background-color: #212121;
     position: absolute;
     top: -17px;
     left: 170px;
-    padding-top: 8px;
+    padding-top: 5px;
+    z-index: 1;
+}
+
+.pen-icon:before {
+    content: "\f040";
+}
+
+.camera-icon:before {
+    content: "\f03d";
+}
+
+.th-icon:before {
+    content: "\f009";
+}
+
+.music-icon:before {
+    content: "\f001";
+}
+
+.link-icon:before {
+    content: "\f10d";
+}
+
+.quate-icon:before {
+    content: "\f0c1";
+}
+
+.travel-icon:before {
+    content: "\f03e";
 }
 
 .menu-article {
     display: flex;
     justify-content: space-between;
+    padding: 23px 20px 23px 20px;
+    border-top: 1px solid rgba(221, 221, 221, 15) ;
+}
+
+.menu-article div:first-child span:last-child {
+    color: #999999;
+    margin-left: 8px;
+}
+
+.article-link {
+    margin-right: 9px;
+    color: #464646;
 }
 
 footer {
     position: absolute;
-    height: 412px;
+    height: 371px;
     width: 100%;
     left: 0;
     bottom: 0;
-    background-color: black;
+    background-color: #212429;
 
     font-family: Hind;
     color: #f9f9fb;
@@ -231,6 +314,17 @@ footer h3 {
     width: 359px;
 }
 
+.latest-tweets div {
+    margin-left: 20px;
+    position: relative;
+}
+.latest-tweets p:first-child:before {
+    content: "\f099";
+    position: absolute;
+    top:0;
+    left: -20px;
+}
+
 .follow-instagram {
     width: 361px;
 
@@ -246,4 +340,10 @@ footer h3 {
 
 .latest-comment {
     width: 348px;
+}
+
+.copyright-block {
+    background-color: #17191c;
+    height: 41px;
+    text-align: center;
 }
