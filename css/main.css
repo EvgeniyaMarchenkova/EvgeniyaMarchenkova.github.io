@@ -29,6 +29,8 @@ nav div {
 }
 
 .nav-link {
+    box-sizing: border-box;
+    align-items: center;
     justify-content:center;
     border-left: 1px solid gray;
     border-right: 1px solid gray;
@@ -43,6 +45,18 @@ nav div a {
     text-align: left;
 }
 
+.hamburger-menu {
+    width: 63px;
+}
+
+.rss,
+.twitter,
+.tumblr,
+.facebook,
+.search {
+    width: 55px;
+}
+
 nav:before {
     content: '';
     height: 345px;
@@ -54,10 +68,6 @@ nav:before {
     z-index: -1;
 }
 
-.nav-link {
-    width: 65px;
-    align-items: center;
-}
 
 .slider {
     position: relative;
@@ -69,18 +79,35 @@ nav:before {
 }
 
 .header-slider {
-    left: 0;
-    bottom: 30px;
+    left: 100px;
+    bottom: 222px;
+}
+
+.header-slider h1,
+.header-slider h3 {
+    text-align: left;
+}
+
+.header-slider h1 {
+    margin-top: 15px;
+    font-size: 40px;/* Приближение из-за подстановки шрифтов */
+    font-weight: 700;
+    line-height: 50px;/* Приближение из-за подстановки шрифтов */
+    text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.44);
 }
 
 .slide-buttons {
-    top: 100px;
-    right: 120px;
+    font-size: 14px;/* Приближение из-за подстановки шрифтов */
+    font-weight: 600;
+    line-height: 24px;/* Приближение из-за подстановки шрифтов */
+    top: 250px;
+    right: -7px;
     transform: rotate(270deg);
 }
 
 .slide-buttons span {
-    margin: 10px;
+    margin-bottom: 10px;
+    margin-right: 2px;
 }
 
 .signup-form {
@@ -89,28 +116,35 @@ nav:before {
     align-items: center;
     height: 100px;
     width: 1531px;
-    box-sizing: border-box;
     background-color: #f7f7f7;
 
 }
 
 .signup-form h3 {
+    width: 210px;
     font-family: Montserrat;
     color: #212121;
     font-size: 20px; /* Приближение из-за подстановки шрифтов */
     font-weight: 700;
     line-height: 28px; /* Приближение из-за подстановки шрифтов */
     text-align: left;
-    margin-left: 30px;
+    margin-left: 28px;
 
 }
+
 .signup-form input {
+    box-sizing: border-box;
     border:1px solid rgba(221, 221, 221, 15);
     box-shadow: 0px 0px 1px 0px rgba(232, 232, 232, 0.21);
     height: 50px;
+    margin-left: 26px;
+}
+
+
+.input-name,
+.input-email {
     width: 450px;
     background-color: #ffffff;
-    margin-left: 30px;
     padding-left: 30px;
     font-family: Hind;
     color: #999999;
@@ -119,14 +153,14 @@ nav:before {
     line-height: 28px; /* Приближение из-за подстановки шрифтов */
 }
 
-.signup-form input:last-child {
+.subscribe-button {
+    width: 282px;
     background-color: #212121;
     color: #ffffff;
     font-size: 14px; /* Приближение из-за подстановки шрифтов */
     font-weight: 500;
     line-height: 24px; /* Приближение из-за подстановки шрифтов */
     margin-right: 30px;
-    margin-left: none;
 }
 
 .content {
@@ -145,7 +179,6 @@ nav:before {
 article {
     position: relative;
     margin-bottom: 30px;
-    box-sizing: border-box;
     background-color: #ffffff;
     width: 360px;
     color: #464646;
@@ -274,7 +307,7 @@ article h4 {
 
 footer {
     position: absolute;
-    height: 371px;
+    height: 414px;
     width: 100%;
     left: 0;
     bottom: 0;
@@ -291,7 +324,11 @@ footer {
 footer .wrapper {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 55px;
+}
 
+.footerBlock div {
+    color: #ceced1;
 }
 
 footer h3 {
@@ -301,13 +338,15 @@ footer h3 {
     font-weight: 700;
     line-height: 28px;/* Приближение из-за подстановки шрифтов */
     text-align: left;
-    margin: 59px auto 38px;
+    margin: 53px auto 25px;
 }
-
-
 
 .about {
     width: 361px;
+}
+
+.about img {
+    margin-top: 5px;
 }
 
 .latest-tweets {
@@ -316,10 +355,12 @@ footer h3 {
 
 .latest-tweets div {
     margin-left: 20px;
+    margin-bottom: 25px;
     position: relative;
 }
 .latest-tweets p:first-child:before {
-    content: "\f099";
+    font-family: FontAwesome;
+    content: "\F099";
     position: absolute;
     top:0;
     left: -20px;
@@ -327,23 +368,45 @@ footer h3 {
 
 .follow-instagram {
     width: 361px;
-
 }
 
 .follow-instagram img {
-    margin-left: -0.25em;
+    margin-left: -0.15em;
+    margin-top: -0.4em;
 }
 
-.follow-instagram img:first-of-type {
-    margin-left: 0;
+.follow-instagram div {
+    margin-top: 35px;
 }
 
 .latest-comment {
     width: 348px;
 }
 
+.author-comment {
+    margin-bottom: 6px;
+}
+
+.comment:first-of-type {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #6d6f71;
+}
+
 .copyright-block {
     background-color: #17191c;
     height: 41px;
     text-align: center;
+    color: #6d6f71;
+}
+
+.copyright-block div {
+    display: inline-flex;
+    margin-top: 7px;
+    padding-left: 18px;
+}
+
+.copyright-block div:not(:last-child) {
+    padding-right: 18px;
+    border-right: 1px solid #6d6f71;;
 }
