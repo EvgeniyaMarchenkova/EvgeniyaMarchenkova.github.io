@@ -1,66 +1,72 @@
 html {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    min-height: 100%;
-    position: relative;
-    background-color: #f9f9fb;
+  min-height: 100%;
+  position: relative;
+  background-color: #f9f9fb;
+  font-family: Hint, sans-serif;
 }
 
 .container {
-    padding-bottom: 412px;
+  padding-bottom: 412px;
+}
+
+h3,
+h4{
+  font-family: Montserrat, sans-serif;
 }
 
 .wrapper {
-    margin: 0 auto;
-    width: 1531px;
+  margin: 0 auto;
+  width: 1531px;
 }
 
 nav {
-    display: flex;
-    background-color:  #212429;
-    height: 55px;
-    justify-content: space-between;
+  display: flex;
+  background-color:  #212429;
+  height: 55px;
+  justify-content: space-between;
 }
 
 nav div {
-    display: inline-flex;
+  display: inline-flex;
 }
 
 .logo {
-    align-items: center;
-    margin-left: 280px;
+  align-items: center;
+  margin-left: 280px;
 }
 
 .nav-link {
-    box-sizing: border-box;
-    align-items: center;
-    justify-content:center;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content:center;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
 }
 
 nav div a {
-    font-family: FontAwesome;
-    color:  #ffffff;
-    font-size: 16px;/* Приближение из-за подстановки шрифтов */
-    font-weight: 400;
-    line-height: 24px;/* Приближение из-за подстановки шрифтов */
-    text-align: left;
+  font-family: FontAwesome;
+  color:  #ffffff;
+  font-size: 16px;/* Приближение из-за подстановки шрифтов */
+  font-weight: 400;
+  line-height: 24px;/* Приближение из-за подстановки шрифтов */
+  text-align: left;
 }
 
 nav div a:hover,
 .hamburger-menu:hover {
-    color: #999999;
+  color: #999999;
 }
 
 .hamburger-menu {
-    width: 63px;
+  width: 63px;
 }
 
 .logo {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 .rss,
@@ -68,388 +74,411 @@ nav div a:hover,
 .tumblr,
 .facebook,
 .search {
-    width: 55px;
+  width: 55px;
 }
 
 nav:before {
-    content: '';
-    height: 345px;
-    background-color:  #212429;
-    position: absolute;
-    width: 100%;
-    top:0;
-    left: 0;
-    z-index: -1;
+  content: '';
+  height: 345px;
+  background-color:  #212429;
+  position: absolute;
+  width: 100%;
+  top:0;
+  left: 0;
+  z-index: -1;
 }
 
 
 .slider {
-    position: relative;
+  position: relative;
 }
 .slider>div{
-    position: absolute;
-    color: white;
-    text-align: center;
+  position: absolute;
+  color: white;
+  text-align: center;
 }
 
 .header-slider {
-    left: 100px;
-    bottom: 222px;
+  left: 100px;
+  bottom: 222px;
 }
 
 .header-slider h1,
 .header-slider h3 {
-    text-align: left;
+  text-align: left;
 }
 
 .header-slider h1 {
-    margin-top: 15px;
-    font-size: 40px;/* Приближение из-за подстановки шрифтов */
-    font-weight: 700;
-    line-height: 50px;/* Приближение из-за подстановки шрифтов */
-    text-shadow: 1px 2px 0px rgba(0, 0, 0, 0.44);
+  margin-top: 15px;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 50px;
 }
 
 .slide-buttons {
-    font-size: 14px;/* Приближение из-за подстановки шрифтов */
-    font-weight: 600;
-    line-height: 24px;/* Приближение из-за подстановки шрифтов */
-    top: 250px;
-    right: -7px;
-    transform: rotate(270deg);
+  font-size: 14px;/* Приближение из-за подстановки шрифтов */
+  font-weight: 600;
+  line-height: 24px;/* Приближение из-за подстановки шрифтов */
+  top: 250px;
+  right: -7px;
+  transform: rotate(270deg);
 }
 
 .slide-buttons span {
-    margin-bottom: 10px;
-    margin-right: 2px;
+  margin-bottom: 10px;
+  margin-right: 2px;
 }
 
 .signup-form {
-    display: flex;
-    flex-direction:row;
-    align-items: center;
-    height: 100px;
-    width: 1531px;
-    background-color: #f7f7f7;
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  height: 100px;
+  width: 1531px;
+  background-color: #f7f7f7;
 
 }
 
 .signup-form h3 {
-    width: 210px;
-    font-family: Montserrat;
-    color: #212121;
-    font-size: 20px; /* Приближение из-за подстановки шрифтов */
-    font-weight: 700;
-    line-height: 28px; /* Приближение из-за подстановки шрифтов */
-    text-align: left;
-    margin-left: 28px;
+  width: 210px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  margin-left: 28px;
 
 }
 
 .signup-form input {
-    box-sizing: border-box;
-    border:1px solid rgba(221, 221, 221, 15);
-    box-shadow: 0px 0px 1px 0px rgba(232, 232, 232, 0.21);
-    height: 50px;
-    margin-left: 26px;
+  box-sizing: border-box;
+  border:1px solid rgba(221, 221, 221, 15);
+  box-shadow: 0px 0px 1px 0px rgba(232, 232, 232, 0.21);
+  height: 50px;
+  margin-left: 26px;
 }
 
 
 .input-name,
 .input-email {
-    width: 450px;
-    background-color: #ffffff;
-    padding-left: 30px;
-    font-family: Hind;
-    color: #999999;
-    font-size: 15px; /* Приближение из-за подстановки шрифтов */
-    font-weight: 300;
-    line-height: 28px; /* Приближение из-за подстановки шрифтов */
+  width: 450px;
+  background-color: #ffffff;
+  padding-left: 30px;
+  font-family: Hind;
+  color: #999999;
+  font-size: 15px; /* Приближение из-за подстановки шрифтов */
+  font-weight: 300;
+  line-height: 28px; /* Приближение из-за подстановки шрифтов */
 }
 
 .subscribe-button {
-    width: 282px;
-    background-color: #212121;
-    color: #ffffff;
-    font-size: 14px; /* Приближение из-за подстановки шрифтов */
-    font-weight: 500;
-    line-height: 24px; /* Приближение из-за подстановки шрифтов */
-    margin-right: 30px;
+  width: 282px;
+  background-color: #212121;
+  color: #ffffff;
+  font-size: 14px; /* Приближение из-за подстановки шрифтов */
+  font-weight: 500;
+  line-height: 24px; /* Приближение из-за подстановки шрифтов */
+  margin-right: 30px;
 }
 
 .subscribe-button:hover {
-    box-shadow: 0px 3px 25.52px 3.48px rgba(112, 112, 112, 0.49);
+  box-shadow: 0px 3px 25.52px 3.48px rgba(112, 112, 112, 0.49);
 }
 
 .content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    align-content: space-around;
-    padding-top: 75px;
-    padding-bottom: 58px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-around;
+  padding-top: 75px;
+  padding-bottom: 58px;
 }
 
 .content-column {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 article  {
-    position: relative;
-    margin-bottom: 30px;
-    background-color: #ffffff;
-    width: 360px;
-    color: #464646;
-    font-weight: 300;
-    line-height: 28px; /* Приближение из-за подстановки шрифтов */
-    text-align: center;
+  position: relative;
+  margin-bottom: 30px;
+  background-color: #ffffff;
+  width: 360px;
+  color: #464646;
+  font-weight: 300;
+  line-height: 28px; /* Приближение из-за подстановки шрифтов */
+  text-align: center;
 }
 
 article:hover {
-    box-shadow: 0px 3px 25.52px 3.48px rgba(112, 112, 112, 0.49);
+  box-shadow: 0px 3px 25.52px 3.48px rgba(112, 112, 112, 0.49);
 }
 
+.article-513px {
+  height: 513px;
+}
 
-.content-article {
-    padding:58px 30px 66px 30px;
+.article-368px {
+  height: 368px;
 }
 
 article h4 {
-    color: #212121;
+  font-weight: bold;
 }
 
+.content-article {
+  padding:58px 30px 66px 30px;
+}
 
 
 .read-more-article {
-    height: 32px;
-    width: 128px;
-    line-height: 33px;
-    border-right: 1px solid rgba(221, 221, 221, 15);
-    border-left: 1px solid rgba(221, 221, 221, 15);
-    margin: 10px auto;
+  height: 32px;
+  width: 128px;
+  line-height: 33px;
+  border-right: 1px solid rgba(221, 221, 221, 15);
+  border-left: 1px solid rgba(221, 221, 221, 15);
+  margin: 10px auto;
 }
 
 .read-more-article:hover {
-    border-right: none;
-    border-left:none;
+  border-right: none;
+  border-left:none;
 }
 
 .read-more-article:hover span {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    border-top: 1px solid rgba(221, 221, 221, 15);
-    border-bottom: 1px solid rgba(221, 221, 221, 15);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: 1px solid rgba(221, 221, 221, 15);
+  border-bottom: 1px solid rgba(221, 221, 221, 15);
 
 }
 
 .article-with-background {
-    background-image: url("../images/article-backgroung.png");
+  background-image: url("../images/article-backgroung.png");
 }
-
-.empty-article {
-    min-height: 513px;
-}
-
 
 .article-with-black-background {
-    color:white;
-    background-color: #212429;
+  color:white;
+  background-color: #212429;
 }
 
 .image-for-article {
-
-    background-color: #f4f4f4;
+  height: 256px;
+  background-color: #f4f4f4;
 }
 
 .circle-image {
-    width: 135px;
-    height: 135px;
-    background-color: #999999;
-    border:1px solid white;
-    border-radius: 70px;
-    margin: 0 auto;
+  width: 135px;
+  height: 135px;
+  background-color: #999999;
+  border:1px solid white;
+  border-radius: 70px;
+  margin: 0 auto;
 }
 
 .article-icon:before {
-    box-sizing: border-box;
-    font-family: FontAwesome;
-    color: white;
-    height: 35px;
-    width: 40px;
-    background-color: #212121;
-    position: absolute;
-    top: -17px;
-    left: 159px;
-    padding-top: 5px;
-    z-index: 1;
+  box-sizing: border-box;
+  font-family: FontAwesome;
+  color: white;
+  height: 35px;
+  width: 40px;
+  background-color: #212121;
+  position: absolute;
+  top: -17px;
+  left: 159px;
+  padding-top: 5px;
+  z-index: 1;
+}
+
+.article-with-image:before {
+  top: 248px;
 }
 
 .article-with-black-background:before {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 
 .pen-icon:before {
-    content: "\f040";
+  content: "\f040";
 }
 
 .camera-icon:before {
-    content: "\f03d";
+  content: "\f03d";
 }
 
 .th-icon:before {
-    content: "\f009";
+  content: "\f009";
 }
 
 .music-icon:before {
-    content: "\f001";
+  content: "\f001";
 }
 
 .link-icon:before {
-    content: "\f10d";
+  content: "\f10d";
 }
 
 .quate-icon:before {
-    content: "\f0c1";
+  content: "\f0c1";
 }
 
 .travel-icon:before {
-    content: "\f03e";
+  content: "\f03e";
+}
+
+.text-article {
+  margin-top: 13px;
 }
 
 .menu-article {
-    display: flex;
-    justify-content: space-between;
-    padding: 21px 20px 21px 25px;
-    border-top: 1px solid rgba(221, 221, 221, 15);
+  display: flex;
+  justify-content: space-between;
+  padding: 21px 20px 21px 25px;
+  border-top: 1px solid #f6f6f6;
 }
 
 .menu-article div:first-child {
-    font-size: 14px;/* Приближение из-за подстановки шрифтов */
-    font-weight: 400;
-    line-height: 24px;
+  font-size: 14px;/* Приближение из-за подстановки шрифтов */
+  font-weight: 400;
+  line-height: 24px;
 }
 
 .menu-article div:first-child span:last-child {
-    color: #999999;
+  color: #999999;
+}
+
+.read-comments {
+  text-decoration: none;
 }
 
 .article-link {
-    color: #464646;
-    width: 28px;
+  color: #464646;
+  width: 28px;
 }
 
 .article-link:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .count-comment {
-    margin-left: 8px;
+  margin-left: 8px;
 }
 
-footer {
-    position: absolute;
-    height: 414px;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    background-color: #212429;
+.row-with-image {
+  display: inline-flex;
+  border-bottom: 1px solid #f6f6f6;
+}
 
-    font-family: Hind;
-    color: #f9f9fb;
-    font-size: 15px; /* Приближение из-за подстановки шрифтов */
-    font-weight: 300;
-    line-height: 28px; /* Приближение из-за подстановки шрифтов */
-    text-align: left;
+.row-with-image div {
+  width: 180px;
+  height: 128px;
+}
+
+.row-with-image div:first-child {
+  border-right: 1px solid #f6f6f6;
+}
+
+
+footer {
+  position: absolute;
+  height: 414px;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-color: #212429;
+
+  font-family: Hind;
+  color: #f9f9fb;
+  font-size: 15px; /* Приближение из-за подстановки шрифтов */
+  font-weight: 300;
+  line-height: 28px; /* Приближение из-за подстановки шрифтов */
+  text-align: left;
 }
 
 footer .wrapper {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 55px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 55px;
 }
 
 .footerBlock div {
-    color: #ceced1;
+  color: #ceced1;
 }
 
 footer h3 {
-    font-family: Montserrat;
-    color:  #f7f7f7;
-    font-size: 16px;/* Приближение из-за подстановки шрифтов */
-    font-weight: 700;
-    line-height: 28px;/* Приближение из-за подстановки шрифтов */
-    text-align: left;
-    margin: 53px auto 25px;
+  color:  #f7f7f7;
+  font-size: 16px;/* Приближение из-за подстановки шрифтов */
+  font-weight: 700;
+  line-height: 28px;/* Приближение из-за подстановки шрифтов */
+  text-align: left;
+  margin: 53px auto 25px;
 }
 
 .about {
-    width: 361px;
+  width: 361px;
 }
 
 .about img {
-    margin-top: 5px;
+  margin-top: 5px;
 }
 
 .latest-tweets {
-    width: 359px;
+  width: 359px;
 }
 
 .latest-tweets div {
-    margin-left: 20px;
-    margin-bottom: 25px;
-    position: relative;
+  margin-left: 20px;
+  margin-bottom: 25px;
+  position: relative;
 }
 .latest-tweets p:first-child:before {
-    font-family: FontAwesome;
-    content: "\F099";
-    position: absolute;
-    top:0;
-    left: -20px;
+  font-family: FontAwesome;
+  content: "\F099";
+  position: absolute;
+  top:0;
+  left: -20px;
 }
 
 .follow-instagram {
-    width: 361px;
+  width: 361px;
 }
 
 .follow-instagram img {
-    margin-left: -0.15em;
-    margin-top: -0.4em;
+  margin-left: -0.15em;
+  margin-top: -0.6em;
 }
 
 .follow-instagram div {
-    margin-top: 35px;
+  margin-top: 35px;
 }
 
 .latest-comment {
-    width: 348px;
+  width: 348px;
 }
 
 .author-comment {
-    margin-bottom: 6px;
+  margin-bottom: 6px;
 }
 
 .comment:first-of-type {
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid #6d6f71;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #6d6f71;
 }
 
 .copyright-block {
-    background-color: #17191c;
-    height: 41px;
-    text-align: center;
-    color: #6d6f71;
+  background-color: #17191c;
+  height: 41px;
+  text-align: center;
+  color: #6d6f71;
 }
 
 .copyright-block div {
-    display: inline-flex;
-    margin-top: 7px;
-    padding-left: 18px;
+  display: inline-flex;
+  margin-top: 7px;
+  padding-left: 18px;
 }
 
 .copyright-block div:not(:last-child) {
-    padding-right: 18px;
-    border-right: 1px solid #6d6f71;;
+  padding-right: 18px;
+  border-right: 1px solid #6d6f71;;
 }
