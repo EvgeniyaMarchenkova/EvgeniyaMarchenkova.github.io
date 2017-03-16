@@ -426,28 +426,33 @@ function timespanToHumanString(startDate, endDate) {
     } else if (sub <= 90000) {
         return 'a minute ago';
     } else if (sub <= 45*60*1000) {
-        if (Math.ceil(sub/60000)>2) {
-            return Math.floor(sub/60000) + ' minutes ago';
-        }
-        else {
-            return Math.ceil(sub/60000) + ' minutes ago';
-        }
+        var m = Math.round(sub/60000);
+        if (sub%60000 == 30000) m--; //исправляем дебильную логику округления в тестах
+        return m + ' minutes ago';
     } else if (sub <= 90*60*1000) {
         return 'an hour ago';
     } else if (sub <= 22*60*60*1000) {
-        return Math.ceil(sub/3600000) + ' hours ago';
+        var h = Math.round(sub/3600000);
+        if (sub%3600000 == 1800000) h--;
+        return h + ' hours ago';
     } else if (sub <= 36*60*60*1000) {
         return 'a day ago';
     } else if (sub <= 25*60*60*24*1000) {
-        return Math.ceil(sub/86400000) + ' days ago';
+        var d = Math.round(sub/86400000);
+        if (sub%86400000 == 43200000) d--;
+        return d + ' days ago';
     } else if (sub <= 45*60*60*24*1000) {
         return 'a month ago';
     } else if (sub <= 345*60*60*24*1000) {
-        return Math.ceil(sub/2592000000) + ' months ago';
+        var month = Math.round(sub/2592000000);
+        if (sub%2592000000 == 1296000000) month--;
+        return month + ' months ago';
     } else if (sub <= 545*60*60*24*1000) {
         return 'a year ago';
     } else {
-        return Math.ceil(sub/31104000000) + ' years ago';
+        var y = Math.round(sub/31104000000);
+        if (sub%31104000000 == 15552000000) y--;
+        return y + ' years ago';
     }
 }
 

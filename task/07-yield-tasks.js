@@ -148,26 +148,43 @@ function* breadthTraversalTree(root) {
  *   [ 1, 3, 5, ... ], [ -1 ] => [ -1, 1, 3, 5, ...]
  */
 function* mergeSortedSequences(source1, source2) {
-    var minLength;
-    (source1.length > source2.length) ? minLength = source2.length : minLength = source1.length;
-    for (var j = 0; j < minLength; j++) {
-        if (source1[j] > source2[j]) {
-            yield source2[j];
-            yield source1[j];
+
+    let gen1 = source1();
+    let gen2 = source2();
+    var currentValue = gen1.next().value;
+    var currentSourceId = 1;
+    var val;
+    var done = false;
+    while(!done) {
+        if (currentSourceId == 1) {
+            val = gen2.next().value;
+        } else {
+            val = gen1.next().value;
         }
-        else {
-            yield source1[j];
-            yield source2[j];
+
+        if (val == undefined) {
+            done = true;
+        }
+
+        if (val < currentValue && val != undefined) {
+            yield val;
+        } else {
+            yield currentValue;
+            currentValue = val;
+            currentSourceId = (currentSourceId == 1)?2:1;
         }
     }
-    if (minLength == source2.length) {
-        for (var i = j; i < source1.length; i++) {
-            yield source1[i];
+    done = false;
+    while(!done) {
+        if (currentSourceId == 1) {
+            val = gen2.next().value;
+        } else {
+            val = gen1.next().value;
         }
-    }
-    else {
-        for (i = j; i < source2.length; i++) {
-            yield source2[i];
+        if (val == undefined) {
+            done = true;
+        } else {
+            yield val;
         }
     }
 }
