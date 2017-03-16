@@ -9,6 +9,11 @@ body {
   font-family: Hind, sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 .container {
   padding-bottom: 412px;
 }
@@ -32,6 +37,7 @@ nav div {
 .logo {
   align-items: center;
   margin-left: 280px;
+  vertical-align: middle;
 }
 
 .nav-link {
@@ -57,10 +63,6 @@ nav div a:hover,
 
 .hamburger-menu {
   width: 63px;
-}
-
-.logo {
-  vertical-align: middle;
 }
 
 .rss,
@@ -238,11 +240,6 @@ article h4 {
   margin: 25px auto;
 }
 
-.read-more-article a {
-    text-decoration: none;
-    color: inherit;
-}
-
 .read-more-article:hover {
   border-right: none;
   border-left:none;
@@ -350,10 +347,6 @@ article h4 {
 
 .menu-article div:first-child span:last-child {
   color: #999999;
-}
-
-.read-comments {
-  text-decoration: none;
 }
 
 .article-link {
