@@ -426,7 +426,12 @@ function timespanToHumanString(startDate, endDate) {
     } else if (sub <= 90000) {
         return 'a minute ago';
     } else if (sub <= 45*60*1000) {
-        return Math.ceil(sub/60000) + ' minutes ago';
+        if (Math.ceil(sub/60000)>2) {
+            return Math.floor(sub/60000) + ' minutes ago';
+        }
+        else {
+            return Math.ceil(sub/60000) + ' minutes ago';
+        }
     } else if (sub <= 90*60*1000) {
         return 'an hour ago';
     } else if (sub <= 22*60*60*1000) {

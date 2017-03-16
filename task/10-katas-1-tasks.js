@@ -74,7 +74,34 @@ function createCompassPoints() {
  *   'nothing to do' => 'nothing to do'
  */
 function* expandBraces(str) {
-    throw new Error('Not implemented');
+    var copyStr = str;
+    var arrSubstr = [];
+    findSubstr();
+    function findSubstr() {
+        var indexStart = copyStr.indexOf('{', indexStart+1 || 0);
+        if (indexStart !=-1) {
+            if (copyStr.indexOf('{', indexStart + 1) > copyStr.indexOf('}', indexStart + 1) || copyStr.indexOf('{', indexStart + 1) == -1) {
+                var indexEnd = copyStr.indexOf('}',indexStart + 1);
+                var substring = copyStr.substr(indexStart, indexEnd - indexStart+1);
+                arrSubstr.push(substring);
+                copyStr = copyStr.replace(substring, '');
+                findSubstr();
+            }
+            else {
+                findSubstr();
+            }
+        }
+        else return;
+    }
+    var arrOfArr = arrSubstr.map(function(item,i) {
+        return item.substr(1, item.length - 2).split(',');
+    });
+
+    for (var i = 0; i < arrOfArr.length; i++) {
+        for (var j = 0; j < arrOfArr[i].length; j++) {
+            yield str.replace(arrSubstr[i], arrOfArr[i][j]);
+        }
+    }
 }
 
 
@@ -173,16 +200,22 @@ function extractRanges(nums) {
                 if (resultStr.charAt(resultStr.length-1) != '-') {
                     resultStr += ',' + item;
                 }
-                else  resultStr += item;
+                else  resultStr +=  item;
 
             }
         }
         else {
             if (resultStr.charAt(resultStr.length-1) != prevResult) {
+                if (resultStr.charAt(resultStr.length-1) != '-') {
+                    resultStr += ',';
+                }
                 resultStr +=   prevResult+ ',' + item;
+
+                flag = false;
             }
             else {
                 resultStr += ',' + item;
+                flag = false;
             }
         }
         return item;
