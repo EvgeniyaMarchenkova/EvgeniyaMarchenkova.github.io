@@ -7,10 +7,11 @@ export default React.createClass({
             <div>
                 <h1>RS</h1>
                 <ul role="nav">
-                    <li><NavLink to="/weeks" >Weeksssss</NavLink></li>
-                    <li><NavLink to="/months">Monthsssss</NavLink></li>
+                    <li><NavLink {...this.props} onClick = {this.props.switchToWeek} to="/weeks" >Weeksssss</NavLink></li>
+                    <li><NavLink {...this.props}  onClick = {this.props.switchToMonth} to="/months">Monthsssss</NavLink></li>
                 </ul>
                 {this.props.children}
+
             </div>
         )
     }

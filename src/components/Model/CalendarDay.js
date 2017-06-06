@@ -17,7 +17,7 @@ export default  class CalendarDay {
     getHours() {
         if (!this.hours) {
             this.hours = [];
-            date = moment(this.startOfDate);
+            let date = moment(this.startOfDate);
             while (date <= this.endOfWeek) {
                 this.days.push(moment(date));
                 date.add(1, 'hour');

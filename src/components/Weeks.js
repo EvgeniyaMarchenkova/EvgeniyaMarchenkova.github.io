@@ -1,14 +1,15 @@
 import React from 'react'
 
-import TableCalendarContainer from './TableCalendarContainer'
+import CalendarWeekView from './CalendarWeekView'
 
 
 
 export default React.createClass({
   render() {
+      console.log(this.props)
     return <div>
       <div>{this.props.params.repoName}</div>
-      <TableCalendarContainer/>
+      <CalendarWeekView {...this.props} calendarMonth = {this.props.calendarMonth} calendarWeek = {this.props.calendarWeek} />
     </div>;
   }
 })

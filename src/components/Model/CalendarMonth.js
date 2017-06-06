@@ -28,4 +28,12 @@ export default  class CalendarMonth {
 
         return this.weeks;
     }
+
+    getFormattedDays() {
+
+        const weeks = this.getWeeks();
+        const range = moment.range(this.weeks[0].startOfWeek, this.weeks[4].endOfWeek);
+
+        return Array.from(range.by('day')).map(m => m.format('DD'))
+    }
 }

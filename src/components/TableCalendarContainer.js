@@ -4,8 +4,8 @@ import moment from 'moment';
 import { List } from 'immutable';
 import ReactDOM from 'react-dom';
 
-import CalendarWeek from './CalendarWeek';
-import CalendarMonth from './CalendarMonth';
+import CalendarWeek from './CalendarWeekView';
+import CalendarMonth from './CalendarMonthView';
 
 
 export default class TableCalendarContainer extends React.Component {

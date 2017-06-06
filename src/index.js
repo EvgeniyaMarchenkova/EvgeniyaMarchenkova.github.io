@@ -12,10 +12,10 @@ import Weeks from './components/Weeks'
 render(
     <Provider store={store}>
         <Router history={hashHistory}>
-            <Route path="/" component={App}>
-            <Route path="/:repoName" component={Weeks}/>
-            <Route path="/months" component={Months}/>
-            </Route>
+        <Route path="/" component={App}>
+        <Route path="/:repoName" component={Weeks}/>
+        <Route path="/:repoName" component={Months}/>
+        </Route>
         </Router>
     </Provider>,
     document.getElementById('app'))
