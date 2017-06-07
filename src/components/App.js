@@ -1,55 +1,28 @@
 import React from 'react';
 import Moment from 'moment';
 import { extendMoment } from 'moment-range';
+import { Router, Route, hashHistory } from 'react-router'
 
 const moment = extendMoment(Moment);
 import Calendar from './Calendar';
 import CalendarMonth from './Model/CalendarMonth';
 import CalendarWeek from './Model/CalendarWeek'
 import NavLink from './NavLink'
+import  HeaderCalendar from './HeaderCalendar'
+import Weeks from './Weeks'
 
 
+export default class App  extends React.Component {
 
-export default class  extends React.Component {
-
-    state = {
-        isWeek: false
-    }
-
-    static propTypes = {
-        calendarMonth: React.PropTypes.object.isRequired,
-        calendarWeek: React.PropTypes.object.isRequired
-    }
-
-    static defaultProps = {
-        calendarMonth: new CalendarMonth(),
-        calendarWeek: new CalendarWeek()
-    }
-
-    switchToWeek = (e) => {
-        e.preventDefault();
-        this.setState({ isWeek: true});
-    }
-
-    switchToMonth = (e) => {
-        e.preventDefault()
-        this.setState({ isWeek: false})
-    }
 
     render() {
-        const {
-            calendarMonth,
-            calendarWeek
-        } = this.props
         return (
-            <div>
-                <h1>RS-calendar</h1>
-                    <ul role="nav">
-                    <li><NavLink onClick={this.switchToWeek} to="/weeks">Weeks</NavLink></li>
-                    <li><NavLink onClick={this.switchToMonth} to="/month">Month</NavLink></li>
-                    </ul>
-                {this.props.children}
-            </div>
+            <Router history={hashHistory}>
+            <Route path="/" component={HeaderCalendar} switchToWeek = {this.props.switchToWeek} switchToMonth = {this.props.switchToMonth}>
+            <Route path="/:reponame" component={Weeks} isWeek = {this.props.isWeek}/>
+            </Route>
+            </Router>
+
         )
     }
 }

@@ -5,17 +5,35 @@ import { Router, Route, hashHistory } from 'react-router'
 
 import store from './store';
 import App from './components/App'
+import HeaderCalendar from './components/HeaderCalendar'
 import Months from './components/Months'
 import Weeks from './components/Weeks'
 
+ class Index extends React.Component {
 
-render(
-    <Provider store={store}>
-        <Router history={hashHistory}>
-        <Route path="/" component={App}>
-        <Route path="/:repoName" component={Weeks}/>
-        <Route path="/:repoName" component={Months}/>
-        </Route>
-        </Router>
-    </Provider>,
-    document.getElementById('app'))
+    state = {
+        isWeek: false
+    }
+
+    switchToWeek = (e) => {
+        e.preventDefault();
+        this.setState({ isWeek: true});
+    }
+
+    switchToMonth = (e) => {
+        e.preventDefault()
+        this.setState({ isWeek: false})
+    }
+
+    render() {
+        return <App switchToWeek = {this.switchToWeek} switchToMonth = {this.switchToMonth} isWeek = {this.state.isWeek}/>
+    }
+
+}
+
+render(<Index />, document.getElementById('app'));
+
+
+
+
+
