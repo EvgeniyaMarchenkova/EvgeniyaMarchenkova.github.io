@@ -9,7 +9,7 @@ import CalendarMonth from './Model/CalendarMonth';
 import CalendarWeek from './Model/CalendarWeek'
 import NavLink from './NavLink'
 import  HeaderCalendar from './HeaderCalendar'
-import Weeks from './Weeks'
+import Weeks from './CalendarTableContainer'
 
 
 export default class App  extends React.Component {

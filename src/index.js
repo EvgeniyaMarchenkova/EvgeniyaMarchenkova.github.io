@@ -7,7 +7,7 @@ import store from './store';
 import App from './components/App'
 import HeaderCalendar from './components/HeaderCalendar'
 import Months from './components/Months'
-import Weeks from './components/Weeks'
+import Weeks from './components/CalendarTableContainer'
 
  class Index extends React.Component {
 

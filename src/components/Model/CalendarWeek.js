@@ -18,12 +18,20 @@ export default class CalendarWeek {
     getDays() {
         if (!this.days) {
             this.days = [];
-            date = moment(this.startOfWeek);
+            let date = moment(this.startOfWeek);
             while (date <= this.endOfWeek) {
                 this.days.push(new CalendarDay(date));
                 date.add(1, 'day');
             }
         }
         return this.days;
+    }
+
+    getFormattedDays() {
+
+        const days = this.getDays();
+        const range = moment.range(this.days[0].startOfDay, this.days[6].endOfDay);
+
+        return Array.from(range.by('day')).map(m => m.format('DD'))
     }
 }

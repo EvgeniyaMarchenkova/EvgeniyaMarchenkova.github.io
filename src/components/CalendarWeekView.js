@@ -5,20 +5,23 @@ import { List } from 'immutable';
 import ReactDOM from 'react-dom';
 
 
-let nameOfDay = ['Time/Day', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ];
+let nameOfDay = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ];
 export default React.createClass({
 
     render() {
-
+        let resultArr = [];
+        for (let i=0; i<=6; i++) {
+            let cell = nameOfDay[i] + '/' + this.props.calendarWeek.getFormattedDays()[i];
+            resultArr.push(cell)
+        }
         return (
             <table>
                 <thead>
                     <tr>
-                    {nameOfDay.map(name => <td key={name.toString()}>{name}</td>)}
+                    {resultArr.map(name => <td key={name.toString()}>{name}</td>)}
                     </tr>
                 </thead>
                 <tbody>
-        {this.props.getFormattedDays().map(elm => <tr>{elm.map(e => <td key={ e.toString() }>{e}</td>)}</tr>)}
                 </tbody>
             </table>
     )
