@@ -19,7 +19,7 @@ export default React.createClass({
     </tr>
         </thead>
         <tbody>
-        {numberOfDate.map(elm => <tr>{elm.map(e => <td key={ e.toString() }>{e}</td>)}</tr>)}
+        {this.props.getFormattedDays().map(elm => <tr>{elm.map(e => <td key={ e.toString() }>{e}</td>)}</tr>)}
     </tbody>
         </table>
     )

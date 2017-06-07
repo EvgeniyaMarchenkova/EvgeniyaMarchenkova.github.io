@@ -3,12 +3,15 @@ import Moment from 'moment';
 import { extendMoment } from 'moment-range';
 
 const moment = extendMoment(Moment);
-import Calendar from './Calendar';
+
 import CalendarMonth from './Model/CalendarMonth';
 import CalendarWeek from './Model/CalendarWeek'
-import NavLink from './NavLink'
+import CalendarMonthView from './CalendarMonthView'
+import CalendarWeekView from './CalendarWeekView'
 
 
+
+let nameOfDay = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ];
 
 export default class Weeks  extends React.Component {
 
@@ -23,25 +26,18 @@ export default class Weeks  extends React.Component {
         calendarWeek: new CalendarWeek()
     }
 
-    switchToWeek = (e) => {
-        e.preventDefault();
-        this.setState({ isWeek: true});
-    }
-
-    switchToMonth = (e) => {
-        e.preventDefault()
-        this.setState({ isWeek: false})
-    }
 
     render() {
+
         const {
             calendarMonth,
             calendarWeek
         } = this.props
         if (this.props.route.isWeek) {
-            return <h1>111</h1>
+            return
+                <CalendarWeekView calendarMonth = {this.props.calendarMonth } calendarWeek = {this.props.calendarWeek }/>
         }
-        return <h1>222</h1>
+        return <CalendarMonthView calendarMonth = {this.props.calendarMonth } calendarWeek = {this.props.calendarWeek }/>
     }
 }
 

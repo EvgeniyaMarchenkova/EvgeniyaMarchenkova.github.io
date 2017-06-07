@@ -26,7 +26,7 @@ import Weeks from './components/Weeks'
     }
 
     render() {
-        return <App switchToWeek = {this.switchToWeek} switchToMonth = {this.switchToMonth} isWeek = {this.state.isWeek}/>
+        return <App switchToWeek = {this.switchToWeek} switchToMonth = {this.switchToMonth}  isWeek = {this.state.isWeek}/>
     }
 
 }

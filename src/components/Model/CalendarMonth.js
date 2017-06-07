@@ -1,6 +1,7 @@
 import moment from 'moment';
 import DateTimeHelper from '../Helper/DateTimeHelper'
 import CalendarWeek from './CalendarWeek'
+import _ from 'lodash';
 
 export default  class CalendarMonth {
 
@@ -34,6 +35,6 @@ export default  class CalendarMonth {
         const weeks = this.getWeeks();
         const range = moment.range(this.weeks[0].startOfWeek, this.weeks[4].endOfWeek);
 
-        return Array.from(range.by('day')).map(m => m.format('DD'))
+        return _.chunk(Array.from(range.by('day')).map(m => m.format('DD')),7)
     }
 }
