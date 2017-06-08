@@ -1,22 +1,24 @@
 import React from 'react'
 import { Router, Route, hashHistory } from 'react-router'
-import connect from 'react-redux'
+import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 import  HeaderCalendar from './components/HeaderCalendar'
 import CalendarTableContainer from './components/CalendarTableContainer'
+import * as selectMode from './actions/index'
 
-export default class App  extends React.Component {
+
+class App  extends React.Component {
 
 
-    switchToMonth = () => {this.props.dispatch(selectedMode('month'))}
-
-    switchToWeek = () => {this.props.dispatch(selectedMode('week'))}
 
     render() {
+
+
         return (
             <Router history={hashHistory}>
-                <Route path="/" component={HeaderCalendar} {...this.props}>
-                    <Route path="/:reponame" component={CalendarTableContainer} {...this.props}/>
+                <Route path="/" component={HeaderCalendar} selectMode = {this.props.selectMode}>
+                    <Route path="/:reponame" component={CalendarTableContainer} selectedMode = {this.props.selectedMode}/>
                 </Route>
             </Router>
         )
@@ -29,4 +31,10 @@ function mapStateToProps (state) {
     }
 }
 
-//export default connect(mapStateToProps)(App)
+function mapDispatchToProps(dispatch) {
+    return {
+        selectMode: bindActionCreators(selectMode, dispatch)
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

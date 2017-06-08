@@ -18,7 +18,8 @@ export default class Weeks  extends React.Component {
 
     static propTypes = {
         calendarMonth: React.PropTypes.object.isRequired,
-        calendarWeek: React.PropTypes.object.isRequired
+        calendarWeek: React.PropTypes.object.isRequired,
+        selectedMode: React.PropTypes.string.isRequired
     }
 
     static defaultProps = {
@@ -31,9 +32,9 @@ export default class Weeks  extends React.Component {
 
         const {
             calendarMonth,
-            calendarWeek
+            calendarWeek,
         } = this.props
-        if (this.props.route.isWeek) {
+        if (this.props.route.selectedMode == 'week') {
             return  <CalendarWeekView  calendarWeek = {this.props.calendarWeek }/>
         }
         return <CalendarMonthView calendarMonth = {this.props.calendarMonth }/>
