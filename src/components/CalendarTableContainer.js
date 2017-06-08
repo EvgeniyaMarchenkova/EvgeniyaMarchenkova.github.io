@@ -34,9 +34,9 @@ export default class Weeks  extends React.Component {
             calendarWeek
         } = this.props
         if (this.props.route.isWeek) {
-            return  <CalendarWeekView calendarMonth = {this.props.calendarMonth } calendarWeek = {this.props.calendarWeek }/>
+            return  <CalendarWeekView  calendarWeek = {this.props.calendarWeek }/>
         }
-        return <CalendarWeekView calendarMonth = {this.props.calendarMonth } calendarWeek = {this.props.calendarWeek }/>
+        return <CalendarMonthView calendarMonth = {this.props.calendarMonth }/>
     }
 }
 

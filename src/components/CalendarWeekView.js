@@ -15,15 +15,19 @@ export default React.createClass({
             resultArr.push(cell)
         }
         return (
-            <table>
-                <thead>
-                    <tr>
-                    {resultArr.map(name => <td key={name.toString()}>{name}</td>)}
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+            <div>
+                <a onClick={this.props.calendarWeek.prevWeek} href='#'>Previus Week</a>
+                <a onClick={this.props.calendarWeek.nextWeek} href='#'>Next Week</a>
+                <table>
+                    <thead>
+                        <tr>
+                        {resultArr.map(name => <td key={name.toString()}>{name}</td>)}
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
     )
     }
 })

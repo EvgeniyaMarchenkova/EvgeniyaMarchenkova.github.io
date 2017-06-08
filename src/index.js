@@ -1,39 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { render } from 'react-dom'
-import { Router, Route, hashHistory } from 'react-router'
 
+import App from './App';
 import store from './store';
-import App from './components/App'
-import HeaderCalendar from './components/HeaderCalendar'
-import Months from './components/Months'
-import Weeks from './components/CalendarTableContainer'
 
- class Index extends React.Component {
-
-    state = {
-        isWeek: false
-    }
-
-    switchToWeek = (e) => {
-        e.preventDefault();
-        this.setState({ isWeek: true});
-    }
-
-    switchToMonth = (e) => {
-        e.preventDefault()
-        this.setState({ isWeek: false})
-    }
-
-    render() {
-        return <App switchToWeek = {this.switchToWeek} switchToMonth = {this.switchToMonth}  isWeek = {this.state.isWeek}/>
-    }
-
-}
-
-render(<Index />, document.getElementById('app'));
-
-
-
-
-
+render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.querySelector('#app')
+);
