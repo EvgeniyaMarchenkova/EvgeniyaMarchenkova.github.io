@@ -1,13 +1,16 @@
 import { createStore,  applyMiddleware } from 'redux';
 import logger from 'redux-logger'
+import thunk from 'redux-thunk'
 
 import switchReducer from './switchReducer';
-import { Api } from './components/API';
+import { Api } from './API';
 
+
+const middleware = [ thunk ]
 
 const store = createStore(
     switchReducer,
-    applyMiddleware(logger)
+    applyMiddleware(middleware)
 )
 
 window.store = store;

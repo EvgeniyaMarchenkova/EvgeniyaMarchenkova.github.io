@@ -34,10 +34,16 @@ export default class Weeks  extends React.Component {
             calendarMonth,
             calendarWeek,
         } = this.props
+
+        return <div>
+            <CalendarWeekView  calendarWeek = {this.props.calendarWeek }/>
+            <CalendarMonthView  calendarMonth = {this.props.calendarMonth }/>
+        </div>
+
         if (this.props.route.selectedMode == 'week') {
             return  <CalendarWeekView  calendarWeek = {this.props.calendarWeek }/>
         }
-        return <CalendarMonthView calendarMonth = {this.props.calendarMonth }/>
+       // return  <CalendarMonthView  calendarMonth = {this.props.calendarMonth }/>
     }
 }
 

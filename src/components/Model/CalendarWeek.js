@@ -4,9 +4,8 @@ import CalendarDay from './CalendarDay'
 
 export default class CalendarWeek {
 
-    constructor() {
-        this.currentDate = moment();
-        this.setWeek(this.currentDate);
+    constructor(date = moment()) {
+        this.setWeek(date);
     }
 
     setWeek(date) {

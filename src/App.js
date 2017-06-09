@@ -10,11 +10,7 @@ import * as selectMode from './actions/index'
 
 class App  extends React.Component {
 
-
-
     render() {
-
-
         return (
             <Router history={hashHistory}>
                 <Route path="/" component={HeaderCalendar} selectMode = {this.props.selectMode}>

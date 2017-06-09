@@ -1,11 +1,8 @@
 import React from 'react';
-import _ from 'lodash';
-import moment from 'moment';
-import { List } from 'immutable';
-import ReactDOM from 'react-dom';
 
 
 const nameOfDay = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ];
+
 export default React.createClass({
 
     render() {
