@@ -13,13 +13,14 @@ import CalendarWeekView from './CalendarWeekView'
 
 let nameOfDay = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ];
 
-export default class Weeks  extends React.Component {
+export default class CalendarTableContainer  extends React.Component {
 
 
     static propTypes = {
         calendarMonth: React.PropTypes.object.isRequired,
         calendarWeek: React.PropTypes.object.isRequired,
-        selectedMode: React.PropTypes.string.isRequired
+/*        slideCalendar: React.PropTypes.object.isRequired,
+        selectedMode: React.PropTypes.string.isRequired*/
     }
 
     static defaultProps = {
@@ -27,23 +28,18 @@ export default class Weeks  extends React.Component {
         calendarWeek: new CalendarWeek()
     }
 
-
     render() {
 
         const {
             calendarMonth,
             calendarWeek,
-        } = this.props
+        } = this.props;
 
-        return <div>
-            <CalendarWeekView  calendarWeek = {this.props.calendarWeek }/>
-            <CalendarMonthView  calendarMonth = {this.props.calendarMonth }/>
-        </div>
 
-        if (this.props.route.selectedMode == 'week') {
+        if (this.props.location.pathname == "/week") {
             return  <CalendarWeekView  calendarWeek = {this.props.calendarWeek }/>
         }
-       // return  <CalendarMonthView  calendarMonth = {this.props.calendarMonth }/>
+        return  <CalendarMonthView  calendarMonth = {this.props.calendarMonth }/>
     }
 }
 

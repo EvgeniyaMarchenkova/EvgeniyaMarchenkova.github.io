@@ -5,6 +5,7 @@ import CalendarDay from './CalendarDay'
 export default class CalendarWeek {
 
     constructor(date = moment()) {
+        this.showedWeek = date;
         this.setWeek(date);
     }
 
@@ -34,8 +35,4 @@ export default class CalendarWeek {
         return Array.from(range.by('day')).map(m => m.format('DD'))
     }
 
-    prevWeek() {
-        console.log(this.currentDate.add(7, 'days'))
-        this.setWeek(this.currentDate.add(7, 'days'));
-    }
 }

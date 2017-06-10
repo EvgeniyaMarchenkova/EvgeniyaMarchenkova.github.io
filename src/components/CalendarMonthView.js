@@ -26,7 +26,11 @@ export default React.createClass({
                     </tr>
                 </thead>
                 <tbody>
-                     {rows}
+                    {this.props.calendarMonth.getWeeks().map(function(week) {
+                        return <tr key={week.startOfWeek.isoWeek()}>{week.getDays().map(function(day) {
+                                        return <td key={day.startOfDay.valueOf()}>{day.startOfDay.format("D")}</td>;
+                                    })}</tr>
+                    })}
                 </tbody>
             </table>
     )
