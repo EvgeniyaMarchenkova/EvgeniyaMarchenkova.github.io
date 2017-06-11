@@ -27,14 +27,14 @@ export default  class CalendarMonth {
 
     getWeeks() {
 
-        if (!this.weeks) {
+
             this.weeks = [];
             let date = moment(this.startOfMonth);
             while (date <= this.endOfMonth) {
                 this.weeks.push(new CalendarWeek(date));
                 date.add(1, 'week');
             }
-        }
+
 
         return this.weeks;
     }
@@ -42,7 +42,6 @@ export default  class CalendarMonth {
     getFormattedDays() {
 
         const range = moment.range(this.weeks[0].startOfWeek, this.weeks[4].endOfWeek);
-        console.log(this.weeks )
         return _.chunk(Array.from(range.by('day')).map(m => m.format('DD')),7)
     }
 }

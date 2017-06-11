@@ -4,12 +4,13 @@ const nameOfDay = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sat
 
 export default class CalendarWeekView  extends React.Component{
 
-    slideToPrevWeek = (date) => this.props.slideCalendar.slideToPrevWeek(date)
 
-    slideToNextWeek = (date) => this.props.slideCalendar.slideToNextWeek(date)
+    slideToPrevWeek = () => store.dispatch(this.props.slideCalendar.slideToPrevWeek(store.getState().dateState));
+
+    slideToNextWeek = () => store.dispatch(this.props.slideCalendar.slideToNextWeek(store.getState().dateState));
 
     render() {
-        console.log(this.props)
+
         let resultArr = [];
         for (let i=0; i<=6; i++) {
             let cell = nameOfDay[i] + '/' + this.props.calendarWeek.getFormattedDays()[i];
@@ -17,11 +18,13 @@ export default class CalendarWeekView  extends React.Component{
         }
         return (
             <div>
-                <a onClick= {::this.slideToPrevWeek} href='#'>Previus Week</a>
-                <a onClick= {::this.slideToNextWeek} href='#'>Next Week</a>
+                <a onClick= {::this.slideToPrevWeek} href='javascript: void(0)'>Previus Week</a>
+                <a onClick= {::this.slideToNextWeek} href='javascript: void(0)'>Next Week</a>
+                { this.props.calendarWeek.startOfWeek.format('D/M/Y') }
                 <table>
                     <thead>
                         <tr>
+
                         {resultArr.map(name => <td key={name.toString()}>{name}</td>)}
                         </tr>
                     </thead>

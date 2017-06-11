@@ -13,9 +13,7 @@ export default class CalendarWeek {
 
         this.startOfWeek = DateTimeHelper.getStartOfWeek(date);
         this.endOfWeek = DateTimeHelper.getEndOfWeek(date);
-    }
 
-    getDays() {
         if (!this.days) {
             this.days = [];
             let date = moment(this.startOfWeek);
@@ -24,13 +22,16 @@ export default class CalendarWeek {
                 date.add(1, 'day');
             }
         }
+    }
+
+    getDays() {
+
         return this.days;
     }
 
     getFormattedDays() {
 
-        const days = this.getDays();
-        const range = moment.range(this.days[0].startOfDay, this.days[6].endOfDay);
+        const range = moment.range(this.startOfWeek, this.endOfWeek);
 
         return Array.from(range.by('day')).map(m => m.format('DD'))
     }

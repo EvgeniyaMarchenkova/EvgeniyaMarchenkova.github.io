@@ -18,8 +18,8 @@ class App  extends React.Component {
         return (
             <Router history={hashHistory}>
                 <Route path="/" component={HeaderCalendar}>
-                    <Route path="/week" component={CalendarTableContainer} />
-                    <Route path="/month" component={CalendarTableContainer} />
+                    <Route path="/week" component={CalendarTableContainer} slideCalendar={this.props.slideCalendar} />
+                    <Route path="/month" component={CalendarTableContainer}  slideCalendar={this.props.slideCalendar}  />
                 </Route>
             </Router>
         )

@@ -34,18 +34,19 @@ function fetchEventsReducer() {
 }
 
 function slideReducer(state = moment(), action) {
+
     switch (action.type) {
         case 'SLIDE_NEXT_MONTH': {
-            return   { ...state, shownDate: state.add(1, 'months') }
+            return   state.clone().add(1, 'month');
         }
         case 'SLIDE_PREV_MONTH': {
-            return { ...state, shownDate: state.subtract(1, 'months') }
+            return state.clone().subtract(1, 'month');
         }
         case 'SLIDE_NEXT_WEEK': {
-            return { ...state, shownDate: state.add(7, 'days') }
+            return state.clone().add(7, 'days');
         }
         case 'SLIDE_PREV_WEEK': {
-            return { ...state, shownDate: state.subtract(7, 'days') }
+            return state.clone().subtract(7, 'days');
         }
         default:
             return state;

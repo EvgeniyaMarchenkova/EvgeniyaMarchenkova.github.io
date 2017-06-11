@@ -11,6 +11,12 @@ const store = createStore(
 
 window.store = store;
 
+Object.defineProperty(window, 'state', {
+    get() {
+        return store.getState();
+    }
+});
+
 
 export default store;
 
