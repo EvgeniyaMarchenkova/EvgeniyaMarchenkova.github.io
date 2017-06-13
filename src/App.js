@@ -8,11 +8,16 @@ import CalendarTableContainer from './components/CalendarTableContainer'
 import CalendarWeekContainer from './components/CalendarWeekContainer'
 import CalendarMonthContainer from './components/CalendarMonthContainer'
 import * as selectMode from './actions/index'
-import * as fetchEvents from './actions/Api'
+import { fetchEvents } from './actions/Api'
 import * as slideCalendar from './actions/slideCalendar'
 
 
 class App  extends React.Component {
+
+    componentDidMount() {
+        store.dispatch(fetchEvents());
+        //store.dispatch(this.props.fetchEvents);
+    }
 
     render() {
         return (
@@ -29,7 +34,8 @@ class App  extends React.Component {
 function mapStateToProps (store) {
     return {
         selectedMode: store.modeState,
-        shownDate: store.dateState
+        shownDate: store.dateState,
+        events: store.fetchEvents
     }
 }
 

@@ -11,25 +11,24 @@ function switchReducer(state = 'month', action) {
     }
 }
 
-function fetchEventsReducer() {
-
-    return (dispatch) => {
-        dispatch({
-            type: 'GET_PHOTOS_REQUEST',
-            json: events
-        })
-
-        fetch('http://128.199.53.150/events')
-            .then (response => response.json())
-            .then (response => dispatch({
-                type: 'GET_EVENTS_SUCCESS',
-                payload: response.events
-            }))
-            .catch( error => dispatch({
-                type: 'GET_EVENTS_FAILURE',
-                payload: error
-            }))
-
+const fetchEventsReducer = (state = {
+    isFetching: false,
+    items: []
+}, action) => {
+    switch (action.type) {
+        case 'REQUEST_EVENTS':
+            return {
+                ...state,
+                isFetching: true
+            }
+        case 'RECEIVE_EVENTS':
+            return {
+                ...state,
+                isFetching: false,
+                items: action.events
+            }
+        default:
+            return state
     }
 }
 
@@ -55,7 +54,7 @@ function slideReducer(state = moment(), action) {
 
 const reducers = combineReducers({
     modeState: switchReducer,
-    fetchEvents: fetchEventsReducer,
+    events: fetchEventsReducer,
     dateState: slideReducer
 });
 

@@ -24,7 +24,7 @@ export default class CalendarMonthView extends React.Component{
             <div>
                 <a onClick= {::this.slideToPrevMonth} href='javascript: void(0)'>Previus Month</a>
                 <a onClick= {::this.slideToNextMonth} href='javascript: void(0)'>Next Month</a>
-
+                { this.props.events.length }
                 <table>
                     <thead>
                         <tr>

@@ -20,7 +20,6 @@ export default class CalendarWeekView  extends React.Component{
             <div>
                 <a onClick= {::this.slideToPrevWeek} href='javascript: void(0)'>Previus Week</a>
                 <a onClick= {::this.slideToNextWeek} href='javascript: void(0)'>Next Week</a>
-                { this.props.calendarWeek.startOfWeek.format('D/M/Y') }
                 <table>
                     <thead>
                         <tr>
