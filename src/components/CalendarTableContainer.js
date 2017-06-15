@@ -24,41 +24,49 @@ export default class CalendarTableContainer  extends React.Component {
         this.state = {
             calendarMonth: new CalendarMonth(),
             calendarWeek: new CalendarWeek(),
-            dateState: store.getState().dateState.format('D/M/Y'),
-            events: store.getState().events.items
+            dateState: store.getState().dateState,
+            events: store.getState().events.items,
         };
 
         this.calendarMonth = new CalendarMonth();
         this.calendarWeek = new CalendarWeek();
     }
 
-
-        changeDate() {
-
+    changeDate() {
             let date = store.getState().dateState;
             this.state.calendarMonth.setMonth(date);
             this.state.calendarWeek.setWeek(date);
             this.setState({
-                dateState: date.format('D/M/Y'),
+                dateState: date,
                 events: store.getState().events.items
             });
-        }
+    }
+
+    getShownEvents() {
+        const arrOfDateMonth = this.state.calendarMonth.getArrayOfDays().map(moment => moment.utc());
+        return this.state.events.filter(function(eventDate){
+            return arrOfDateMonth.includes(eventDate.start)
+        })
+    }
 
 
 
-        static propTypes = {
+
+    static propTypes = {
             calendarMonth: React.PropTypes.object.isRequired,
             calendarWeek: React.PropTypes.object.isRequired,
     /*        slideCalendar: React.PropTypes.object.isRequired,
             selectedMode: React.PropTypes.string.isRequired*/
-        }
+    }
+
+
 
     render() {
-
+        console.log(this.state.dateState)
         if (this.props.location.pathname == "/week") {
-            return  <CalendarWeekView  calendarWeek = {this.state.calendarWeek} slideCalendar = {this.props.route.slideCalendar} events = {this.state.events} />
+            return  <CalendarWeekView shownDateMonth={this.state.dateState.month()}   calendarWeek = {this.state.calendarWeek} slideCalendar = {this.props.route.slideCalendar} events = {this.state.events} />
         }
-        return  <CalendarMonthView  calendarMonth = {this.state.calendarMonth} slideCalendar = {this.props.route.slideCalendar} events = {this.state.events} />
+        return  <CalendarMonthView shownDateMonth={this.state.dateState.month()}   calendarMonth = {this.state.calendarMonth} slideCalendar = {this.props.route.slideCalendar} events = {this.state.events} />
     }
 }
 

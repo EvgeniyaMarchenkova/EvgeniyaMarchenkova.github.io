@@ -36,10 +36,10 @@ function slideReducer(state = moment(), action) {
 
     switch (action.type) {
         case 'SLIDE_NEXT_MONTH': {
-            return   state.clone().add(1, 'month');
+            return   moment(state).add(1, 'month');
         }
         case 'SLIDE_PREV_MONTH': {
-            return state.clone().subtract(1, 'month');
+            return moment(state).subtract(1, 'month');
         }
         case 'SLIDE_NEXT_WEEK': {
             return state.clone().add(7, 'days');

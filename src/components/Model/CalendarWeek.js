@@ -36,4 +36,10 @@ export default class CalendarWeek {
         return Array.from(range.by('day')).map(m => m.format('DD'))
     }
 
+    getArrayOfDays() {
+
+        const range = moment.range(this.startOfWeek, this.endOfWeek);
+        return Array.from(range.by('day'))
+    }
+
 }

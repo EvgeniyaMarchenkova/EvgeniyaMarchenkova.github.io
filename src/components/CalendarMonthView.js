@@ -1,30 +1,35 @@
 import React from 'react';
 
+import Deadline from './Deadline'
+import DateTimeHelper from './Helper/DateTimeHelper'
+
 
 const nameOfDay = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ];
 
 export default class CalendarMonthView extends React.Component{
 
-    slideToPrevMonth = () =>  store.dispatch(this.props.slideCalendar.slideToPrevMonth(store.getState().dateState));
+    slideToPrevMonth = () =>  this.props.slideCalendar.slideToPrevMonth(store.getState().dateState);
 
-    slideToNextMonth = () =>  store.dispatch(this.props.slideCalendar.slideToNextMonth(store.getState().dateState));
+    slideToNextMonth = () =>  this.props.slideCalendar.slideToNextMonth(store.getState().dateState);
+
+
 
     render() {
-        /*const rows = this.props.calendarMonth.getFormattedDays().map(function (item, i){
-            const entry = item.map(function (element, j) {
-                return (
-                    <td key={j}> {element} </td>
-                );
+
+        var events = this.props.events;
+        function filterEventsByDate(date) {
+            return events.filter(function(event) {
+                return (DateTimeHelper.getStartOfDay(event.start).valueOf() == date.valueOf());
             });
-            return (
-                <tr key={i}> {entry} </tr>
-            );
-        });*/
+        }
+        filterEventsByDate.bind(this);
+
+
         return (
             <div>
+                <Deadline/>
                 <a onClick= {::this.slideToPrevMonth} href='javascript: void(0)'>Previus Month</a>
                 <a onClick= {::this.slideToNextMonth} href='javascript: void(0)'>Next Month</a>
-                { this.props.events.length }
                 <table>
                     <thead>
                         <tr>
@@ -33,9 +38,15 @@ export default class CalendarMonthView extends React.Component{
                     </thead>
                     <tbody>
                         {this.props.calendarMonth.getWeeks().map(function(week) {
+
                             return <tr key={week.startOfWeek.isoWeek()}>{week.getDays().map(function(day) {
-                                            return <td key={day.startOfDay.valueOf()}>{day.startOfDay.format("D")}</td>;
-                                        })}</tr>
+                                            return <td key={day.startOfDay.valueOf()}
+                                                       className={day.startOfDay.month()}
+                                            >{day.startOfDay.format("D")}
+                                                {filterEventsByDate(day.startOfDay.valueOf()).map(function(event) {
+                                                    return <div>{event.title}</div>
+                                                })}</td>;
+                            })}</tr>
                         })}
                     </tbody>
                 </table>

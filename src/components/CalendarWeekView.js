@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Lection from './Lection'
+
 const nameOfDay = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ];
 
 export default class CalendarWeekView  extends React.Component{
@@ -18,6 +20,7 @@ export default class CalendarWeekView  extends React.Component{
         }
         return (
             <div>
+                <Lection/>
                 <a onClick= {::this.slideToPrevWeek} href='javascript: void(0)'>Previus Week</a>
                 <a onClick= {::this.slideToNextWeek} href='javascript: void(0)'>Next Week</a>
                 <table>

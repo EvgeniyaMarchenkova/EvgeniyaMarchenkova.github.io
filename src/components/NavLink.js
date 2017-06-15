@@ -3,6 +3,17 @@ import { Link } from 'react-router'
 
 export default React.createClass({
     render() {
-        return <Link {...this.props} activeClassName="active"/>
+        return <div>
+            <style jsx>{`
+                 .mode-link {
+                        color:darkgrey;
+                 }
+                 .active {
+                    color:grey;
+                 }
+            `}
+            </style>
+                    <Link {...this.props} className="mode-link" activeClassName="active"/>
+            </div>
     }
 })
