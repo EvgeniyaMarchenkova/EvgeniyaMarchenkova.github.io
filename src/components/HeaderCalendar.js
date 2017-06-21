@@ -3,17 +3,6 @@ import NavLink from './NavLink'
 
 export default class HeaderCalendar  extends React.Component {
 
-    constructor(props) {
-        super(props);
-        //console.log(this.props);
-        /*if (props.selectedMode == 'week') {
-            props.calendar = new CalendarWeek();
-        } else {
-            props.calendar = new CalendarMonth();
-        }*/
-
-    }
-
     switchToMonth = () => this.props.route.selectMode.selectMode('month')
 
     switchToWeek = () => this.props.route.selectMode.selectMode('week')
@@ -23,17 +12,24 @@ export default class HeaderCalendar  extends React.Component {
         return (
 
             <div>
+                <style jsx>{`
+                        ul {
+                            list-style-type:none;
+                            display: flex;
+                            justify-content: space-between;
+                            padding-right:40px;
+                        }
 
-            <h1>RS-calendar</h1>
-            <ul role="nav">
+                    `}</style>
+                <h1>RS-calendar</h1>
+                <ul role="nav">
 
-                <li><NavLink to="/week">Weeks</NavLink></li>
-                <li><NavLink to="/month">Month</NavLink></li>
-            </ul>
-                    <div>
-            {this.props.children}
-                    </div>
-
+                    <li><NavLink to="/week">Weeks View</NavLink></li>
+                    <li><NavLink to="/month">Month View</NavLink></li>
+                </ul>
+                        <div>
+                {this.props.children}
+                        </div>
             </div>
     )
     }

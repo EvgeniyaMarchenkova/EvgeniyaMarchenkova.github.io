@@ -32,7 +32,6 @@ export default class CalendarWeek {
     getFormattedDays() {
 
         const range = moment.range(this.startOfWeek, this.endOfWeek);
-
         return Array.from(range.by('day')).map(m => m.format('DD'))
     }
 

@@ -25,4 +25,8 @@ export default class DateTimeHelper {
     static getEndOfDay(date) {
         return moment(date).endOf('day');
     }
+
+    static getStartOfHour(date) {
+        return moment(date).startOf('hour');
+    }
 }

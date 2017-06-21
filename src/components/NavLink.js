@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 
 export default React.createClass({
     render() {
-        return <div>
+        return <span>
             <style jsx>{`
                  .mode-link {
                         color:darkgrey;
@@ -14,6 +14,6 @@ export default React.createClass({
             `}
             </style>
                     <Link {...this.props} className="mode-link" activeClassName="active"/>
-            </div>
+            </span>
     }
 })

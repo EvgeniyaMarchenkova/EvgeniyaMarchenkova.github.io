@@ -1,0 +1,14 @@
+body {
+    font-size: 30px;
+}
+
+table {
+    color: red;
+}
+
+TD, TH {
+    border: 1px solid black;
+    background-color: #999999;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic3R5bGUuY3NzIiwic291cmNlcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Iiwic291cmNlUm9vdCI6IiJ9*/
