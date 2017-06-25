@@ -3,8 +3,11 @@ import React from 'react';
 import Lection from './Lection'
 import Deadline from './Deadline'
 import DateTimeHelper from './Helper/DateTimeHelper'
+import moment from 'moment';
 
 const nameOfDay = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ];
+const monthObj = {0: 'January', 1: 'February', 2: 'March', 3: 'April', 4: 'May', 5: 'June', 6:'July', 7:'August', 8: 'September', 9:'October', 10: 'November', 11:'December'}  ;
+
 
 export default class CalendarWeekView  extends React.Component{
 
@@ -14,10 +17,10 @@ export default class CalendarWeekView  extends React.Component{
     slideToNextWeek = () => this.props.slideCalendar.slideToNextWeek(store.getState().dateState);
 
     filterEventsByHour(hour, events) {
-        console.log(hour);
-        return events.filter(function(event) {
+        let evs = events.filter(function(event) {
             return (DateTimeHelper.getStartOfHour(event.start).valueOf() == hour.valueOf());
         });
+        return evs;
     }
 
     render() {
@@ -32,6 +35,7 @@ export default class CalendarWeekView  extends React.Component{
             <div>
                 <a onClick= {::this.slideToPrevWeek} href='javascript: void(0)'>Previus Week</a>
                 <a onClick= {::this.slideToNextWeek} href='javascript: void(0)'>Next Week</a>
+                <h3>{monthObj[this.props.shownDateMonth]}</h3>
                 <table>
                     <thead>
                         <tr>
@@ -44,15 +48,20 @@ export default class CalendarWeekView  extends React.Component{
                         return <tr key={this.props.calendarWeek.startOfWeek.format('D/M/Y') + hour.format('H:mm')}>
                             <td>{hour.format('H:mm')}</td>
                             {this.props.calendarWeek.getDays().map(function(day){
+                                let events = this.filterEventsByHour(day.getHours()[hourIndex], this.props.events);
+                                return <td key={day.startOfDay.valueOf()}>
 
-                                return <td key={day.startOfDay.valueOf()}>{this.filterEventsByHour(day.getHours()[hourIndex].valueOf(), this.props.events).map(function(event) {
-                                    if (event.type == 'deadline') {
-                                        return <Deadline key={event.id} eventData = {event} /* trainers = {::this.getTrainersNames(event.speakers)} *//>
-                                    }
-                                    else if (event.type == 'webinar' || event.type == 'lection ') {
-                                        return <Lection key={event.id} eventData = {event} />;
-                                    }
-                                })}</td>
+                                    {events.map(function(event) {
+                                        if (event.type == 'deadline') {
+                                            return <Deadline key={event.id}
+                                                             eventData = {event}
+                                                             getTrainersNames = {this.props.getTrainersNames} />
+                                        }
+                                        else if (event.type == 'webinar' || event.type == 'lection ') {
+                                            return <Lection key={event.id}
+                                                            eventData = {event} />;
+                                        }
+                                    }.bind(this))}</td>
 
                             }.bind(this))}
                             </tr>

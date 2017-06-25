@@ -50,6 +50,26 @@ export default class CalendarTableContainer  extends React.Component {
         });
     }
 
+    getTrainersNames(eventData) {
+        let urls = eventData.speakers.map(function (id) {
+            return fetch('http://localhost:4000/trainers/' + id)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (response) {
+                    return response.name;
+                })
+
+        });
+        console.log(this)
+        Promise.all(urls).then(values => {
+            console.log(this)
+            this.setState({
+                trainers : values.join(',')
+            });
+        })
+    }
+
     render() {
 
 
@@ -58,13 +78,15 @@ export default class CalendarTableContainer  extends React.Component {
                                       calendarWeek = {this.state.calendarWeek}
                                       slideCalendar = {this.props.route.slideCalendar}
                                       events = {this.state.events}
-                                      filterEventsByDate = {this.filterEventsByDate } />
+                                      filterEventsByDate = {this.filterEventsByDate }
+                                      getTrainersNames = {this.getTrainersNames} />
         }
         return  <CalendarMonthView shownDateWeek={this.state.dateState.week()}
                                    calendarMonth = {this.state.calendarMonth}
                                    slideCalendar = {this.props.route.slideCalendar}
                                    events = {this.state.events}
-                                   filterEventsByDate = {this.filterEventsByDate } />
+                                   filterEventsByDate = {this.filterEventsByDate }
+                                   getTrainersNames = {this.getTrainersNames} />
     }
 }
 

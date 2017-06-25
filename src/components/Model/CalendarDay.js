@@ -1,7 +1,7 @@
 import moment from 'moment';
 import DateTimeHelper from '../Helper/DateTimeHelper'
 
-export default  class CalendarDay {
+export default class CalendarDay {
 
     constructor(date = moment()) {
 
@@ -12,17 +12,16 @@ export default  class CalendarDay {
 
         this.startOfDay = DateTimeHelper.getStartOfDay(date);
         this.endOfDay = DateTimeHelper.getEndOfDay(date);
+
+        this.hours = [];
+        let hour = moment(this.startOfDay);
+        while (hour <= this.endOfDay) {
+            this.hours.push(moment(hour));
+            hour.add(1, 'hour');
+        }
     }
 
     getHours() {
-        if (!this.hours) {
-            this.hours = [];
-            let date = moment(this.startOfDay);
-            while (date <= this.endOfDay) {
-                this.hours.push(moment(date));
-                date.add(1, 'hour');
-            }
-        }
         return this.hours;
     }
 }

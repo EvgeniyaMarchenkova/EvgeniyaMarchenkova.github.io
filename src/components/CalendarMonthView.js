@@ -8,27 +8,9 @@ import styles from "../css/main.css";
 
 const nameOfDay = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ];
 
+const monthObj = {0: 'January', 1: 'February', 2: 'March', 3: 'April', 4: 'May', 5: 'June', 6:'July', 7:'August', 8: 'September', 9:'October', 10: 'November', 11:'December'}  ;
+
 export default class CalendarMonthView extends React.Component{
-
-    constructor(props) {
-        super(props);
-
-    }
-
-    getTrainersNames(arr) {
-        let trainersNameArr = [];
-        console.log(arr);
-        if (arr) {
-            arr.forEach(function (id) {
-                fetch('http://localhost:4000/trainers/' + id)
-                    .then(function (response) {
-                        trainersNameArr.push(response.name)
-                    })
-            });
-        }
-        return trainersNameArr.join(',');
-
-    }
 
     slideToPrevMonth = () =>  this.props.slideCalendar.slideToPrevMonth(store.getState().dateState);
 
@@ -40,10 +22,6 @@ export default class CalendarMonthView extends React.Component{
         return (
             <div>
                 <style jsx>{`
-                        table {
-                            border-collapse: collapse;
-                            margin: 0 auto;
-                        }
                         td {
                             height: 80px;
                             width: 100px;
@@ -54,10 +32,10 @@ export default class CalendarMonthView extends React.Component{
                         thead td {
                             height: 50px;
                         }
-
                     `}</style>
                 <a onClick= {::this.slideToPrevMonth} href='javascript: void(0)'>Previus Month</a>
                 <a onClick= {::this.slideToNextMonth} href='javascript: void(0)'>Next Month</a>
+                <h3>{monthObj[this.props.calendarMonth.startOfMonth.month()]}</h3>
                 <table>
                     <thead>
                         <tr>
@@ -65,21 +43,20 @@ export default class CalendarMonthView extends React.Component{
                         </tr>
                     </thead>
                     <tbody>
-
                         {this.props.calendarMonth.getWeeks().map(function(week) {
-
                             return <tr key={week.startOfWeek.isoWeek()}>{week.getDays().map(function(day) {
-
                                             return <td key={day.startOfDay.valueOf()}
-                                                       className={day.startOfDay.month()}> {day.startOfDay.format("D")}
-
+                                                       className={day.startOfDay.month()}>
+                                                {day.startOfDay.format("D")}
                                                 {props.filterEventsByDate(day.startOfDay.valueOf(), props.events).map(function(event) {
-
                                                     if (event.type == 'deadline') {
-                                                        return <Deadline key={event.id} eventData = {event}  trainers = {this.getTrainersNames(event.speakers)} />
+                                                        return <Deadline key={event.id}
+                                                                         eventData = {event}
+                                                                         getTrainersNames = {this.props.getTrainersNames}/>
                                                     }
                                                     else if (event.type == 'webinar' || event.type == 'lection ') {
-                                                        return <Lection key={event.id} eventData = {event} />
+                                                        return <Lection key={event.id}
+                                                                        eventData = {event} />
                                                     }
                                                 }.bind(this))}
                                                 </td>;

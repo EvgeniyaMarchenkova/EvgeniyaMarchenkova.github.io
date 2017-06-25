@@ -22,19 +22,15 @@ export default  class CalendarMonth {
         this.startOfMonth = DateTimeHelper.getStartOfMonth(date);
         this.endOfMonth = DateTimeHelper.getEndOfMonth(date);
 
-
+        this.weeks = [];
+        let week = moment(this.startOfMonth);
+        while (week <= this.endOfMonth) {
+            this.weeks.push(new CalendarWeek(week));
+            week.add(1, 'week');
+        }
     }
 
     getWeeks() {
-
-            this.weeks = [];
-            let date = moment(this.startOfMonth);
-            while (date <= this.endOfMonth) {
-                this.weeks.push(new CalendarWeek(date));
-                date.add(1, 'week');
-            }
-
-
         return this.weeks;
     }
 

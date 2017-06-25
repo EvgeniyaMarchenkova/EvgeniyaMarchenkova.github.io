@@ -13,18 +13,15 @@ export default class CalendarWeek {
 
         this.startOfWeek = DateTimeHelper.getStartOfWeek(date);
         this.endOfWeek = DateTimeHelper.getEndOfWeek(date);
-
-        if (!this.days) {
-            this.days = [];
-            let date = moment(this.startOfWeek);
-            while (date <= this.endOfWeek) {
-                this.days.push(new CalendarDay(date));
-                date.add(1, 'day');
-            }
-        }
     }
 
     getDays() {
+        this.days = [];
+        let date = moment(this.startOfWeek);
+        while (date <= this.endOfWeek) {
+            this.days.push(new CalendarDay(date));
+            date.add(1, 'day');
+        }
 
         return this.days;
     }
