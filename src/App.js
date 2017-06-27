@@ -14,7 +14,6 @@ class App  extends React.Component {
 
     componentDidMount() {
         store.dispatch(fetchEvents());
-        //store.dispatch(this.props.fetchEvents);
     }
 
     render() {

@@ -21,18 +21,6 @@ export default class CalendarMonthView extends React.Component{
         let getTrainersNamesFunction = this.getTrainersNames;
         return (
             <div>
-                <style jsx>{`
-                        td {
-                            height: 80px;
-                            width: 100px;
-                            border: 1px solid grey;
-                            position: relative;
-                            text-align:center;
-                        }
-                        thead td {
-                            height: 50px;
-                        }
-                    `}</style>
                 <a onClick= {::this.slideToPrevMonth} href='javascript: void(0)'>Previus Month</a>
                 <a onClick= {::this.slideToNextMonth} href='javascript: void(0)'>Next Month</a>
                 <h3>{monthObj[this.props.calendarMonth.startOfMonth.month()]}</h3>
@@ -56,7 +44,8 @@ export default class CalendarMonthView extends React.Component{
                                                     }
                                                     else if (event.type == 'webinar' || event.type == 'lection ') {
                                                         return <Lection key={event.id}
-                                                                        eventData = {event} />
+                                                                        eventData = {event}
+                                                                        getTrainersNames = {this.props.getTrainersNames}/>
                                                     }
                                                 }.bind(this))}
                                                 </td>;

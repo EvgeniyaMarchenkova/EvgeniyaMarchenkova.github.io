@@ -59,7 +59,8 @@ export default class CalendarWeekView  extends React.Component{
                                         }
                                         else if (event.type == 'webinar' || event.type == 'lection ') {
                                             return <Lection key={event.id}
-                                                            eventData = {event} />;
+                                                            eventData = {event}
+                                                            getTrainersNames = {this.props.getTrainersNames}/>;
                                         }
                                     }.bind(this))}</td>
 

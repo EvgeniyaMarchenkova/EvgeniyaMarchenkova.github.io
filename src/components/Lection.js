@@ -1,37 +1,39 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome'
+import { Button, Header, Image, Modal } from 'semantic-ui-react'
 
 export default class Lection extends React.Component {
-    render() {
 
-        return <div key="{this.props.eventData.id}">
-                <style jsx>{`
+    constructor(props){
+        super(props);
+        this.state={
+            trainers: ''
+        }
 
+        this.renderLectionInfo = this.renderLectionInfo.bind(this);
+    }
 
-                        .lection .description{
-                            position: absolute;
-                            bottom: 10px;
-                            display:none;
-                            border: 1px solid gray;
-                            background-color:white;
-                        }
-                        .lection:hover .description {
-                            display:block;
-                    `}</style>
-                    <div className="lection">
-                        <div className="description">
-                            <div className='fa-stack'>
-                                <FontAwesome name='users' stack='1x' />
-                                <div className="description">
-                                    <div className="title-event">{this.props.eventData.title}</div>
-                                    <div className="location-event"> Где: {this.props.eventData.title} </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='fa-stack'>
-                            <FontAwesome name='users' stack='1x' />
-                        </div>
+    componentDidMount() {
+        this.props.getTrainersNames.call(this, this.props.eventData)
+    }
+
+    renderLectionInfo(){
+        return <Modal trigger={<Button>Lection</Button>}>
+            <Modal.Header>Lection Info</Modal.Header>
+            <Modal.Content >
+                <Modal.Description>
+                    <div className="title-event">{this.props.eventData.title}</div>
+                    <div className="location-event"> Где: {this.props.eventData.location} </div>
+                    <div className="lectors"> Lectors: {this.state.trainers} </div>
+                    <div className="video">
+                        <a href="https://www.youtube.com/watch?v=3sE1OxDx00o&list=PLe--kalBDwjgwrEDcOKXba_v6ciHoq_8H">Смотреть запись</a>
                     </div>
-                </div>;
+                </Modal.Description>
+            </Modal.Content>
+        </Modal>
+    }
+
+    render() {
+        return <div key="{this.props.eventData.id}">{this.renderLectionInfo()}</div>;
     }
 }

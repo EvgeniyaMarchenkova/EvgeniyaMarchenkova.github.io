@@ -1,5 +1,7 @@
 import React from 'react'
 import NavLink from './NavLink'
+import { Button } from 'semantic-ui-react'
+import {ButtonWeekView, ButtonMonthView, HeaderRSCalendar} from './button'
 
 export default class HeaderCalendar  extends React.Component {
 
@@ -21,11 +23,11 @@ export default class HeaderCalendar  extends React.Component {
                         }
 
                     `}</style>
-                <h1>RS-calendar</h1>
+                <HeaderRSCalendar></HeaderRSCalendar>
                 <ul role="nav">
 
-                    <li><NavLink to="/week">Weeks View</NavLink></li>
-                    <li><NavLink to="/month">Month View</NavLink></li>
+                    <li><NavLink to="/week"><ButtonWeekView></ButtonWeekView></NavLink></li>
+                    <li><NavLink to="/month"><ButtonMonthView></ButtonMonthView></NavLink></li>
                 </ul>
                         <div>
                 {this.props.children}
