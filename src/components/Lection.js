@@ -1,6 +1,6 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome'
-import { Button, Header, Image, Modal } from 'semantic-ui-react'
+import { Button, Header, Image, Modal, Icon, Label } from 'semantic-ui-react'
 
 export default class Lection extends React.Component {
 
@@ -18,7 +18,7 @@ export default class Lection extends React.Component {
     }
 
     renderLectionInfo(){
-        return <Modal trigger={<Button>Lection</Button>}>
+        return <Modal trigger={<Label ribbon>Lection</Label>}>
             <Modal.Header>Lection Info</Modal.Header>
             <Modal.Content >
                 <Modal.Description>

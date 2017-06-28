@@ -61,7 +61,6 @@ export default class CalendarTableContainer  extends React.Component {
                 })
 
         });
-        console.log(this)
         Promise.all(urls).then(values => {
             console.log(this)
             this.setState({

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Table, Label } from 'semantic-ui-react'
+
 import Deadline from './Deadline'
 import Lection from './Lection'
 import DateTimeHelper from './Helper/DateTimeHelper'
@@ -21,38 +23,45 @@ export default class CalendarMonthView extends React.Component{
         let getTrainersNamesFunction = this.getTrainersNames;
         return (
             <div>
-                <a onClick= {::this.slideToPrevMonth} href='javascript: void(0)'>Previus Month</a>
-                <a onClick= {::this.slideToNextMonth} href='javascript: void(0)'>Next Month</a>
+                <a  onClick= {::this.slideToPrevMonth} href='javascript: void(0)'>Previus Month</a>
+                <a  onClick= {::this.slideToNextMonth} href='javascript: void(0)'>Next Month</a>
                 <h3>{monthObj[this.props.calendarMonth.startOfMonth.month()]}</h3>
-                <table>
-                    <thead>
-                        <tr>
-                        {nameOfDay.map(name => <td key={name.toString()}>{name}</td>)}
-                        </tr>
-                    </thead>
-                    <tbody>
+                <Table  inverted celled>
+                    <Table.Header>
+                        <Table.Row>
+                            {nameOfDay.map(name => <Table.HeaderCell key={name.toString()}>{name}</Table.HeaderCell>)}
+                        </Table.Row>
+                    </Table.Header>
+
+                    <Table.Body>
                         {this.props.calendarMonth.getWeeks().map(function(week) {
-                            return <tr key={week.startOfWeek.isoWeek()}>{week.getDays().map(function(day) {
-                                            return <td key={day.startOfDay.valueOf()}
-                                                       className={day.startOfDay.month()}>
-                                                {day.startOfDay.format("D")}
-                                                {props.filterEventsByDate(day.startOfDay.valueOf(), props.events).map(function(event) {
-                                                    if (event.type == 'deadline') {
-                                                        return <Deadline key={event.id}
-                                                                         eventData = {event}
-                                                                         getTrainersNames = {this.props.getTrainersNames}/>
-                                                    }
-                                                    else if (event.type == 'webinar' || event.type == 'lection ') {
-                                                        return <Lection key={event.id}
-                                                                        eventData = {event}
-                                                                        getTrainersNames = {this.props.getTrainersNames}/>
-                                                    }
-                                                }.bind(this))}
-                                                </td>;
-                            }.bind(this))}</tr>
+                            return <Table.Row key={week.startOfWeek.isoWeek()}>{week.getDays().map(function(day) {
+                                console.log(day.startOfDay.month());
+                                console.log(this.props.calendarMonth.startOfMonth.month())
+                                return <Table.Cell key={day.startOfDay.valueOf()}
+                                                   { ...(day.startOfDay.month()!=this.props.calendarMonth.startOfMonth.month() && { disabled: true } ) }>
+
+                                    {day.startOfDay.format("D")}
+                                    {props.filterEventsByDate(day.startOfDay.valueOf(), props.events).map(function(event) {
+                                        if (event.type == 'deadline') {
+                                            return <Deadline key={event.id}
+                                                             eventData = {event}
+                                                             getTrainersNames = {this.props.getTrainersNames}/>
+                                        }
+                                        else if (event.type == 'webinar' || event.type == 'lection ') {
+                                            return <Lection key={event.id}
+                                                            eventData = {event}
+                                                            getTrainersNames = {this.props.getTrainersNames}/>
+                                        }
+                                    }.bind(this))}
+                                </Table.Cell>;
+                            }.bind(this))}</Table.Row>
                         }.bind(this))}
-                    </tbody>
-                </table>
+
+                    </Table.Body>
+
+                </Table>
+
             </div>
         )
     }

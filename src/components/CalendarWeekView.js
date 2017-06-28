@@ -1,4 +1,5 @@
 import React from 'react';
+import { Table, Label } from 'semantic-ui-react'
 
 import Lection from './Lection'
 import Deadline from './Deadline'
@@ -36,39 +37,46 @@ export default class CalendarWeekView  extends React.Component{
                 <a onClick= {::this.slideToPrevWeek} href='javascript: void(0)'>Previus Week</a>
                 <a onClick= {::this.slideToNextWeek} href='javascript: void(0)'>Next Week</a>
                 <h3>{monthObj[this.props.shownDateMonth]}</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <td></td>
-                            {resultArr.map(name => <td key={name.toString()}>{name}</td>)}
-                        </tr>
-                    </thead>
-                    <tbody>
-                    {this.props.calendarWeek.getDays()[0].getHours().map(function(hour, hourIndex){
-                        return <tr key={this.props.calendarWeek.startOfWeek.format('D/M/Y') + hour.format('H:mm')}>
-                            <td>{hour.format('H:mm')}</td>
-                            {this.props.calendarWeek.getDays().map(function(day){
-                                let events = this.filterEventsByHour(day.getHours()[hourIndex], this.props.events);
-                                return <td key={day.startOfDay.valueOf()}>
+                <Table inverted celled>
+                    <Table.Header>
+                        <Table.Row>
+                            <Table.HeaderCell></Table.HeaderCell>
+                            {resultArr.map(name => <Table.HeaderCell key={name.toString()}>{name}</Table.HeaderCell>)}
+                        </Table.Row>
+                    </Table.Header>
 
-                                    {events.map(function(event) {
-                                        if (event.type == 'deadline') {
-                                            return <Deadline key={event.id}
-                                                             eventData = {event}
-                                                             getTrainersNames = {this.props.getTrainersNames} />
-                                        }
-                                        else if (event.type == 'webinar' || event.type == 'lection ') {
-                                            return <Lection key={event.id}
-                                                            eventData = {event}
-                                                            getTrainersNames = {this.props.getTrainersNames}/>;
-                                        }
-                                    }.bind(this))}</td>
+                    <Table.Body>
+                        {this.props.calendarWeek.getDays()[0].getHours().map(function(hour, hourIndex){
+                            return <Table.Row key={this.props.calendarWeek.startOfWeek.format('D/M/Y') + hour.format('H:mm')}>
+                                <Table.Cell>{hour.format('H:mm')}</Table.Cell>
+                                {this.props.calendarWeek.getDays().map(function(day){
+                                    let events = this.filterEventsByHour(day.getHours()[hourIndex], this.props.events);
+                                    return <Table.Cell key={day.startOfDay.valueOf()}>
 
-                            }.bind(this))}
-                            </tr>
-                    }.bind(this))}
-                    </tbody>
-                </table>
+                                        {events.map(function(event) {
+                                            if (event.type == 'deadline') {
+                                                return <Deadline key={event.id}
+                                                                 eventData = {event}
+                                                                 getTrainersNames = {this.props.getTrainersNames} />
+                                            }
+                                            else if (event.type == 'webinar' || event.type == 'lection ') {
+                                                return <Lection key={event.id}
+                                                                eventData = {event}
+                                                                getTrainersNames = {this.props.getTrainersNames}/>;
+                                            }
+                                        }.bind(this))}</Table.Cell>
+
+                                }.bind(this))}
+                            </Table.Row>
+                        }.bind(this))}
+
+                    </Table.Body>
+                    <Table.Footer>
+                        <Table.Row>
+
+                        </Table.Row>
+                    </Table.Footer>
+                </Table>
             </div>
         )
     }

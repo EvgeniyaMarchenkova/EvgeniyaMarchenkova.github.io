@@ -1,6 +1,5 @@
 import React from 'react';
-import FontAwesome from 'react-fontawesome'
-import { Button, Header, Image, Modal, Icon } from 'semantic-ui-react'
+import { Button, Header, Image, Modal, Icon, Label } from 'semantic-ui-react'
 
 export default class Deadline extends React.Component {
 
@@ -19,7 +18,7 @@ export default class Deadline extends React.Component {
     }
 
     renderDeadlineInfo(){
-       return <Modal trigger={<Button basic color='black'><Icon  name='users' /></Button>}>
+       return <Modal trigger={ <Label ribbon>Deadline</Label>}>
             <Modal.Header>deadline info</Modal.Header>
             <Modal.Content >
                 <Modal.Description>
