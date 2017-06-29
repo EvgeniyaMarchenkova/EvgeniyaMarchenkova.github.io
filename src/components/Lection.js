@@ -36,7 +36,7 @@ export default class Lection extends React.Component {
             {menuItem: 'Video', render: () => <Tab.Pane><div className="video">
 
                     <Embed
-                        id='O6Xo21L0ybE'
+                        id='JPdm-lcISBM'
                         placeholder='/assets/images/image-16by9.png'
                         source='youtube'
                     />
