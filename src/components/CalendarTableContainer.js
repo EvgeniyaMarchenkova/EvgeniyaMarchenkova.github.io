@@ -62,16 +62,13 @@ export default class CalendarTableContainer  extends React.Component {
 
         });
         Promise.all(urls).then(values => {
-            console.log(this)
             this.setState({
-                trainers : values.join(',')
+                trainers : values.join(', ')
             });
         })
     }
 
     render() {
-
-
         if (this.props.location.pathname == "/week") {
             return  <CalendarWeekView shownDateMonth={this.state.dateState.month()}
                                       calendarWeek = {this.state.calendarWeek}

@@ -5,8 +5,26 @@
     margin-bottom: 30px;
 }
 
-a {
+.headerMonthTable a, .headerWeekTable a  {
     text-decoration: none;
+    padding-top: 45px;
+    color: gray;
 }
+
+.headerMonthTable a:hover, .headerWeekTable a:hover {
+    color: black;
+}
+
+.headerMonthTable, .headerWeekTable {
+    display: flex;
+    justify-content: space-between;
+    align-content: space-around;
+
+}
+
+ul {
+    margin: 0;
+}
+
 
 

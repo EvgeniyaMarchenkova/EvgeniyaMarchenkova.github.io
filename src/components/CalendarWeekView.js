@@ -1,12 +1,12 @@
 import React from 'react';
-import { Table, Label } from 'semantic-ui-react'
+import { Table, Label, Header, Icon } from 'semantic-ui-react'
 
 import Lection from './Lection'
 import Deadline from './Deadline'
 import DateTimeHelper from './Helper/DateTimeHelper'
 import moment from 'moment';
 
-const nameOfDay = [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday' ];
+const nameOfDay = [ 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun' ];
 const monthObj = {0: 'January', 1: 'February', 2: 'March', 3: 'April', 4: 'May', 5: 'June', 6:'July', 7:'August', 8: 'September', 9:'October', 10: 'November', 11:'December'}  ;
 
 
@@ -34,9 +34,11 @@ export default class CalendarWeekView  extends React.Component{
 
         return (
             <div>
-                <a onClick= {::this.slideToPrevWeek} href='javascript: void(0)'>Previus Week</a>
-                <a onClick= {::this.slideToNextWeek} href='javascript: void(0)'>Next Week</a>
-                <h3>{monthObj[this.props.shownDateMonth]}</h3>
+                <div className="headerWeekTable">
+                    <a  onClick= {::this.slideToPrevWeek} href='javascript: void(0)'><Icon name="chevron left" />previus week</a>
+                    <Header size="large">{monthObj[this.props.shownDateMonth]}</Header>
+                    <a  onClick= {::this.slideToNextWeek} href='javascript: void(0)'>next week<Icon name="chevron right" /></a>
+                </div>
                 <Table inverted celled>
                     <Table.Header>
                         <Table.Row>

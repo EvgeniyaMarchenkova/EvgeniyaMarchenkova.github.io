@@ -25,7 +25,6 @@ export default class HeaderCalendar  extends React.Component {
                     `}</style>
                 <HeaderRSCalendar></HeaderRSCalendar>
                 <ul role="nav">
-
                     <li><NavLink to="/week"><ButtonWeekView></ButtonWeekView></NavLink></li>
                     <li><NavLink to="/month"><ButtonMonthView></ButtonMonthView></NavLink></li>
                 </ul>

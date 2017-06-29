@@ -1,6 +1,6 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome'
-import { Button, Header, Image, Modal, Icon, Label } from 'semantic-ui-react'
+import { Button, Header, Image, Modal, Icon, Label, Tab, Divider, TextArea, Form, Embed  } from 'semantic-ui-react'
 
 export default class Lection extends React.Component {
 
@@ -18,16 +18,48 @@ export default class Lection extends React.Component {
     }
 
     renderLectionInfo(){
+        const panes = [
+            { menuItem: 'Description', render: () => <Tab.Pane>{this.props.eventData.description}</Tab.Pane> },
+            { menuItem: 'Location', render: () => <Tab.Pane>{this.props.eventData.location}</Tab.Pane> },
+            { menuItem: 'Lectors', render: () => <Tab.Pane>{this.state.trainers}</Tab.Pane> },
+            { menuItem: 'Resources', render: () => <Tab.Pane>{this.props.eventData.resources.map(function(resource, i) {
+                console.log(resource)
+                return <div key={resource.i+resource.resource}>
+                    <Header size='medium'>{resource.type}</Header>
+                    <Divider/>
+                    <Header size='small'>Url: </Header>
+                    {resource.resource}
+                    <Header size='small'>Description: </Header>
+                    {resource.description}
+                </div>
+            })}</Tab.Pane>},
+            {menuItem: 'Video', render: () => <Tab.Pane><div className="video">
+
+                    <Embed
+                        id='O6Xo21L0ybE'
+                        placeholder='/assets/images/image-16by9.png'
+                        source='youtube'
+                    />
+
+            </div></Tab.Pane> },
+            {menuItem: 'Feedback', render: () => <Tab.Pane>
+                <Form>
+                    <TextArea placeholder='Leave your feedback' />
+                    <Divider hidden/>
+                    <Button type='submit'>Submit</Button>
+
+                </Form>
+
+            </Tab.Pane>}
+
+        ]
         return <Modal trigger={<Label ribbon>Lection</Label>}>
             <Modal.Header>Lection Info</Modal.Header>
             <Modal.Content >
                 <Modal.Description>
-                    <div className="title-event">{this.props.eventData.title}</div>
-                    <div className="location-event"> Где: {this.props.eventData.location} </div>
-                    <div className="lectors"> Lectors: {this.state.trainers} </div>
-                    <div className="video">
-                        <a href="https://www.youtube.com/watch?v=3sE1OxDx00o&list=PLe--kalBDwjgwrEDcOKXba_v6ciHoq_8H">Смотреть запись</a>
-                    </div>
+                    <Header size='large'>{this.props.eventData.title}</Header>
+                    <Tab panes={panes} />
+                    <div className="feedback"/>
                 </Modal.Description>
             </Modal.Content>
         </Modal>

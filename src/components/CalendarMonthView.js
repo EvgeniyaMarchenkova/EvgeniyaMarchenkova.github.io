@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, Label } from 'semantic-ui-react'
+import { Table, Label, Header, Container, Icon } from 'semantic-ui-react'
 
 import Deadline from './Deadline'
 import Lection from './Lection'
@@ -23,9 +23,11 @@ export default class CalendarMonthView extends React.Component{
         let getTrainersNamesFunction = this.getTrainersNames;
         return (
             <div>
-                <a  onClick= {::this.slideToPrevMonth} href='javascript: void(0)'>Previus Month</a>
-                <a  onClick= {::this.slideToNextMonth} href='javascript: void(0)'>Next Month</a>
-                <h3>{monthObj[this.props.calendarMonth.startOfMonth.month()]}</h3>
+                <div className="headerMonthTable">
+                    <a  onClick= {::this.slideToPrevMonth} href='javascript: void(0)'><Icon name="chevron left" />previus month</a>
+                    <Header size="large">{monthObj[this.props.calendarMonth.startOfMonth.month()]}</Header>
+                    <a  onClick= {::this.slideToNextMonth} href='javascript: void(0)'>next month<Icon name="chevron right" /></a>
+                </div>
                 <Table  inverted celled>
                     <Table.Header>
                         <Table.Row>
@@ -36,8 +38,6 @@ export default class CalendarMonthView extends React.Component{
                     <Table.Body>
                         {this.props.calendarMonth.getWeeks().map(function(week) {
                             return <Table.Row key={week.startOfWeek.isoWeek()}>{week.getDays().map(function(day) {
-                                console.log(day.startOfDay.month());
-                                console.log(this.props.calendarMonth.startOfMonth.month())
                                 return <Table.Cell key={day.startOfDay.valueOf()}
                                                    { ...(day.startOfDay.month()!=this.props.calendarMonth.startOfMonth.month() && { disabled: true } ) }>
 

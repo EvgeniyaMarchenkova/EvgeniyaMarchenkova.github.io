@@ -40,9 +40,6 @@ export default  class CalendarMonth {
         return _.chunk(Array.from(range.by('day')).map(m => m.format('DD')),7)
     }
 
-    getNameOfMonth() {
-        return
-    }
 
     getArrayOfDays() {
         const range = moment.range(this.weeks[0].startOfWeek, this.weeks[4].endOfWeek);
