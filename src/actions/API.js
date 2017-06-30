@@ -16,7 +16,7 @@ export const receiveEvents = (json) => ({
 export function fetchEvents() {
     return dispatch => {
         dispatch(requestEvents());
-        return fetch(`http://localhost:4000/events`)
+        return fetch(`http://128.199.53.150/events`)
             .then(response => response.json())
             .then(json => dispatch(receiveEvents(json)))
     }

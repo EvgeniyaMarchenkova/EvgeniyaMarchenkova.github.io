@@ -20,7 +20,7 @@ export default class Deadline extends React.Component {
     renderDeadlineInfo(){
         const panes = [
             { menuItem: 'Description', render: () => <Tab.Pane>{this.props.eventData.description}</Tab.Pane> },
-            { menuItem: 'Location', render: () => <Tab.Pane>{this.props.eventData.location}</Tab.Pane> },
+            { menuItem: 'Deadline', render: () => <Tab.Pane>{this.props.eventData.start.slice(11,-4)}</Tab.Pane> },
             { menuItem: 'Lectors', render: () => <Tab.Pane>{this.state.trainers}</Tab.Pane> },
             { menuItem: 'Comments', render: () => <Tab.Pane>
                 <Form>

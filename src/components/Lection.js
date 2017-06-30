@@ -1,6 +1,6 @@
 import React from 'react';
 import FontAwesome from 'react-fontawesome'
-import { Button, Header, Image, Modal, Icon, Label, Tab, Divider, TextArea, Form, Embed  } from 'semantic-ui-react'
+import { Button, Header, Image, Modal, Icon, Label, Tab, Divider, TextArea, Form, Embed, Accordion  } from 'semantic-ui-react'
 
 export default class Lection extends React.Component {
 
@@ -22,22 +22,27 @@ export default class Lection extends React.Component {
             { menuItem: 'Description', render: () => <Tab.Pane>{this.props.eventData.description}</Tab.Pane> },
             { menuItem: 'Location', render: () => <Tab.Pane>{this.props.eventData.location}</Tab.Pane> },
             { menuItem: 'Lectors', render: () => <Tab.Pane>{this.state.trainers}</Tab.Pane> },
-            { menuItem: 'Resources', render: () => <Tab.Pane>{this.props.eventData.resources.map(function(resource, i) {
+            { menuItem: 'Resources', render: () => <Tab.Pane>
+
+                {this.props.eventData.resources.map(function(resource, i) {
                 console.log(resource)
-                return <div key={resource.i+resource.resource}>
-                    <Header size='medium'>{resource.type}</Header>
-                    <Divider/>
+
+                return <Accordion styled key={resource.i+resource.resource+resource.type}>
+                    <Accordion.Title><Icon name='dropdown' />{resource.type}</Accordion.Title>
+                    <Accordion.Content>
                     <Header size='small'>Url: </Header>
                     {resource.resource}
                     <Header size='small'>Description: </Header>
                     {resource.description}
-                </div>
-            })}</Tab.Pane>},
+                    </Accordion.Content>
+                </Accordion>
+            })}
+
+            </Tab.Pane>},
             {menuItem: 'Video', render: () => <Tab.Pane><div className="video">
 
                     <Embed
                         id='JPdm-lcISBM'
-                        placeholder='/assets/images/image-16by9.png'
                         source='youtube'
                     />
 
