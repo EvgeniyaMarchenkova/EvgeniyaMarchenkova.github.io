@@ -2,4 +2,4 @@
 
 EVGENIYA MARCHENKOVA
 
-BSUIR 2009
+evgeniyamarchenkova.github.io
